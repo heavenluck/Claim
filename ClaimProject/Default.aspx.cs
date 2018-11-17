@@ -20,6 +20,7 @@ namespace ClaimProject
                 {
                     Response.Redirect("/Claim/claimForm");
                     //TestGittttxxxx
+                    //แก้้้้
                 }
 
                 string date = DateTime.Now.ToString("dd-MM") + "-" + (DateTime.Now.Year + 543);

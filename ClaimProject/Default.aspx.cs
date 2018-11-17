@@ -18,8 +18,8 @@ namespace ClaimProject
             {
                 if (Session["UserCpoint"].ToString() != "0")
                 {
+                    //ทดสอบ
                     Response.Redirect("/Claim/claimForm");
-                    //TestGittttxxxx
                 }
 
                 string date = DateTime.Now.ToString("dd-MM") + "-" + (DateTime.Now.Year + 543);

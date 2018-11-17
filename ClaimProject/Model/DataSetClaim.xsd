@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetClaim" targetNamespace="http://tempuri.org/DataSetClaim.xsd" xmlns:mstns="http://tempuri.org/DataSetClaim.xsd" xmlns="http://tempuri.org/DataSetClaim.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetClaim" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetClaim" msprop:Generator_UserDSName="DataSetClaim">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbl_claim_img" msprop:Generator_TableClassName="tbl_claim_imgDataTable" msprop:Generator_TableVarName="tabletbl_claim_img" msprop:Generator_TablePropName="tbl_claim_img" msprop:Generator_RowDeletingName="tbl_claim_imgRowDeleting" msprop:Generator_RowChangingName="tbl_claim_imgRowChanging" msprop:Generator_RowEvHandlerName="tbl_claim_imgRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_claim_imgRowDeleted" msprop:Generator_UserTableName="tbl_claim_img" msprop:Generator_RowChangedName="tbl_claim_imgRowChanged" msprop:Generator_RowEvArgName="tbl_claim_imgRowChangeEvent" msprop:Generator_RowClassName="tbl_claim_imgRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="claim_img_id" msprop:Generator_ColumnVarNameInTable="columnclaim_img_id" msprop:Generator_ColumnPropNameInRow="claim_img_id" msprop:Generator_ColumnPropNameInTable="claim_img_idColumn" msprop:Generator_UserColumnName="claim_img_id" type="xs:int" minOccurs="0" />
+              <xs:element name="claim_img_url" msprop:Generator_ColumnVarNameInTable="columnclaim_img_url" msprop:Generator_ColumnPropNameInRow="claim_img_url" msprop:Generator_ColumnPropNameInTable="claim_img_urlColumn" msprop:Generator_UserColumnName="claim_img_url" type="xs:string" minOccurs="0" />
+              <xs:element name="claim_deteil_id" msprop:Generator_ColumnVarNameInTable="columnclaim_deteil_id" msprop:Generator_ColumnPropNameInRow="claim_deteil_id" msprop:Generator_ColumnPropNameInTable="claim_deteil_idColumn" msprop:Generator_UserColumnName="claim_deteil_id" type="xs:string" minOccurs="0" />
+              <xs:element name="claim_img_type" msprop:Generator_ColumnVarNameInTable="columnclaim_img_type" msprop:Generator_ColumnPropNameInRow="claim_img_type" msprop:Generator_ColumnPropNameInTable="claim_img_typeColumn" msprop:Generator_UserColumnName="claim_img_type" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

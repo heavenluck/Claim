@@ -1,0 +1,65 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+    font-family: 'TH SarabunPSK';
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    /*background-image: url('Images/01254154215415.jpg');*/
+    /*background: red;
+    background: -webkit-linear-gradient(#FFFFFF, #FF9925);
+    background: -o-linear-gradient(#FFFFFF, #FF9925);
+    background: -moz-linear-gradient(#FFFFFF, #FF9925); 
+    background: linear-gradient(#FFFFFF, #FF9925);*/
+    /* The image used */
+    background: url('/img/7877268095078_bg.jpg') no-repeat center center fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -o-background-size: 100% 100%, auto;
+    -moz-background-size: 100% 100%, auto;
+    -webkit-background-size: 100% 100%, auto;
+    background-size: 100% 100%, auto;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 530px;
+  padding: 15px;
+  margin: auto;
+}
+    .form-signin .checkbox {
+        /*font-weight: 400;*/
+    }
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 25px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.btn{
+    font-size:22px;
+}

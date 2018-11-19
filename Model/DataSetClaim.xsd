@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetClaim" targetNamespace="http://tempuri.org/DataSetClaim.xsd" xmlns:mstns="http://tempuri.org/DataSetClaim.xsd" xmlns="http://tempuri.org/DataSetClaim.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetClaim" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetClaim" msprop:Generator_UserDSName="DataSetClaim">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CRS_01" msprop:Generator_TableClassName="CRS_01DataTable" msprop:Generator_TableVarName="tableCRS_01" msprop:Generator_TablePropName="CRS_01" msprop:Generator_RowDeletingName="CRS_01RowDeleting" msprop:Generator_RowChangingName="CRS_01RowChanging" msprop:Generator_RowEvHandlerName="CRS_01RowChangeEventHandler" msprop:Generator_RowDeletedName="CRS_01RowDeleted" msprop:Generator_UserTableName="CRS_01" msprop:Generator_RowChangedName="CRS_01RowChanged" msprop:Generator_RowEvArgName="CRS_01RowChangeEvent" msprop:Generator_RowClassName="CRS_01Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="claim_id" msprop:Generator_ColumnVarNameInTable="columnclaim_id" msprop:Generator_ColumnPropNameInRow="claim_id" msprop:Generator_ColumnPropNameInTable="claim_idColumn" msprop:Generator_UserColumnName="claim_id" type="xs:string" minOccurs="0" />
+              <xs:element name="cpoint_title" msprop:Generator_ColumnVarNameInTable="columncpoint_title" msprop:Generator_ColumnPropNameInRow="cpoint_title" msprop:Generator_ColumnPropNameInTable="cpoint_titleColumn" msprop:Generator_UserColumnName="cpoint_title" type="xs:string" minOccurs="0" />
+              <xs:element name="title_num" msprop:Generator_ColumnVarNameInTable="columntitle_num" msprop:Generator_ColumnPropNameInRow="title_num" msprop:Generator_ColumnPropNameInTable="title_numColumn" msprop:Generator_UserColumnName="title_num" type="xs:string" minOccurs="0" />
+              <xs:element name="title_date" msprop:Generator_ColumnVarNameInTable="columntitle_date" msprop:Generator_ColumnPropNameInRow="title_date" msprop:Generator_ColumnPropNameInTable="title_dateColumn" msprop:Generator_UserColumnName="title_date" type="xs:string" minOccurs="0" />
+              <xs:element name="title_text" msprop:Generator_ColumnVarNameInTable="columntitle_text" msprop:Generator_ColumnPropNameInRow="title_text" msprop:Generator_ColumnPropNameInTable="title_textColumn" msprop:Generator_UserColumnName="title_text" type="xs:string" minOccurs="0" />
+              <xs:element name="title_send_to" msprop:Generator_ColumnVarNameInTable="columntitle_send_to" msprop:Generator_ColumnPropNameInRow="title_send_to" msprop:Generator_ColumnPropNameInTable="title_send_toColumn" msprop:Generator_UserColumnName="title_send_to" type="xs:string" minOccurs="0" />
+              <xs:element name="note_text" msprop:Generator_ColumnVarNameInTable="columnnote_text" msprop:Generator_ColumnPropNameInRow="note_text" msprop:Generator_ColumnPropNameInTable="note_textColumn" msprop:Generator_UserColumnName="note_text" type="xs:string" minOccurs="0" />
+              <xs:element name="user_create" msprop:Generator_ColumnVarNameInTable="columnuser_create" msprop:Generator_ColumnPropNameInRow="user_create" msprop:Generator_ColumnPropNameInTable="user_createColumn" msprop:Generator_UserColumnName="user_create" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CRS_01_DEV" msprop:Generator_TableClassName="CRS_01_DEVDataTable" msprop:Generator_TableVarName="tableCRS_01_DEV" msprop:Generator_TablePropName="CRS_01_DEV" msprop:Generator_RowDeletingName="CRS_01_DEVRowDeleting" msprop:Generator_RowChangingName="CRS_01_DEVRowChanging" msprop:Generator_RowEvHandlerName="CRS_01_DEVRowChangeEventHandler" msprop:Generator_RowDeletedName="CRS_01_DEVRowDeleted" msprop:Generator_UserTableName="CRS_01_DEV" msprop:Generator_RowChangedName="CRS_01_DEVRowChanged" msprop:Generator_RowEvArgName="CRS_01_DEVRowChangeEvent" msprop:Generator_RowClassName="CRS_01_DEVRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="claim_id" msprop:Generator_ColumnVarNameInTable="columnclaim_id" msprop:Generator_ColumnPropNameInRow="claim_id" msprop:Generator_ColumnPropNameInTable="claim_idColumn" msprop:Generator_UserColumnName="claim_id" type="xs:string" minOccurs="0" />
+              <xs:element name="dev_id" msprop:Generator_ColumnVarNameInTable="columndev_id" msprop:Generator_ColumnPropNameInRow="dev_id" msprop:Generator_ColumnPropNameInTable="dev_idColumn" msprop:Generator_UserColumnName="dev_id" type="xs:string" minOccurs="0" />
+              <xs:element name="dev_name" msprop:Generator_ColumnVarNameInTable="columndev_name" msprop:Generator_ColumnPropNameInRow="dev_name" msprop:Generator_ColumnPropNameInTable="dev_nameColumn" msprop:Generator_UserColumnName="dev_name" type="xs:string" minOccurs="0" />
+              <xs:element name="dev_detail" msprop:Generator_ColumnVarNameInTable="columndev_detail" msprop:Generator_ColumnPropNameInRow="dev_detail" msprop:Generator_ColumnPropNameInTable="dev_detailColumn" msprop:Generator_UserColumnName="dev_detail" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CRS_COM" msprop:Generator_TableClassName="CRS_COMDataTable" msprop:Generator_TableVarName="tableCRS_COM" msprop:Generator_TablePropName="CRS_COM" msprop:Generator_RowDeletingName="CRS_COMRowDeleting" msprop:Generator_RowChangingName="CRS_COMRowChanging" msprop:Generator_RowEvHandlerName="CRS_COMRowChangeEventHandler" msprop:Generator_RowDeletedName="CRS_COMRowDeleted" msprop:Generator_UserTableName="CRS_COM" msprop:Generator_RowChangedName="CRS_COMRowChanged" msprop:Generator_RowEvArgName="CRS_COMRowChangeEvent" msprop:Generator_RowClassName="CRS_COMRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="claim_id" msprop:Generator_ColumnVarNameInTable="columnclaim_id" msprop:Generator_ColumnPropNameInRow="claim_id" msprop:Generator_ColumnPropNameInTable="claim_idColumn" msprop:Generator_UserColumnName="claim_id" type="xs:string" minOccurs="0" />
+              <xs:element name="com_name" msprop:Generator_ColumnVarNameInTable="columncom_name" msprop:Generator_ColumnPropNameInRow="com_name" msprop:Generator_ColumnPropNameInTable="com_nameColumn" msprop:Generator_UserColumnName="com_name" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="CRS_01_CRS_01_DEV" msdata:parent="CRS_01" msdata:child="CRS_01_DEV" msdata:parentkey="claim_id" msdata:childkey="claim_id" msprop:Generator_UserChildTable="CRS_01_DEV" msprop:Generator_ChildPropName="GetCRS_01_DEVRows" msprop:Generator_UserRelationName="CRS_01_CRS_01_DEV" msprop:Generator_ParentPropName="CRS_01Row" msprop:Generator_RelationVarName="relationCRS_01_CRS_01_DEV" msprop:Generator_UserParentTable="CRS_01" />
+      <msdata:Relationship name="CRS_01_CRS_COM" msdata:parent="CRS_01" msdata:child="CRS_COM" msdata:parentkey="claim_id" msdata:childkey="claim_id" msprop:Generator_UserChildTable="CRS_COM" msprop:Generator_ChildPropName="GetCRS_COMRows" msprop:Generator_UserRelationName="CRS_01_CRS_COM" msprop:Generator_ParentPropName="CRS_01Row" msprop:Generator_RelationVarName="relationCRS_01_CRS_COM" msprop:Generator_UserParentTable="CRS_01" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

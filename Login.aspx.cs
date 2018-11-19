@@ -1,0 +1,76 @@
+﻿using ClaimProject.Config;
+using MySql.Data.MySqlClient;
+using System;
+
+namespace ClaimProject
+{
+    public partial class Login : System.Web.UI.Page
+    {
+        ClaimFunction function = new ClaimFunction();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void MsgBox(string message)
+        {
+            msgBox.Text = "<div class='alert alert-danger' style='font-size:large;'><strong>ผิดพลาด! </strong><br/>" + message + "</div>";
+        }
+
+        protected void btnSubmit_Click1(object sender, EventArgs e)
+        {
+            string mess = "";
+            if (txtUser.Text.Trim() == "")
+            {
+                mess += "- กรุณาป้อน Username<br/>";
+            }
+
+            if (txtPass.Text.Trim() == "")
+            {
+                mess += "- กรุณาป้อน Password<br/>";
+            }
+
+            if (mess == "")
+            {
+                string sql = "SELECT * FROM tbl_user WHERE username ='" + txtUser.Text.Trim() + "' AND PASSWORD = '" + txtPass.Text.Trim() + "'";
+                MySqlDataReader rs = function.MySqlSelect(sql);
+                if (rs.Read())
+                {
+                    if (!rs.IsDBNull(0))
+                    {
+                        // Storee Session
+                        Session.Add("User", txtUser.Text);
+                        Session.Add("UserName", rs.GetString("name"));
+                        Session.Add("UserPrivilegeId", rs.GetString("level"));
+                        Session.Add("UserPrivilege", function.GetLevel(int.Parse(rs.GetString("level"))));
+                        Session.Add("UserCpoint",rs.GetString("user_cpoint"));
+                        Session.Timeout = 60*24;
+
+                        //Page.ClientScript.RegisterStartupScript(Page.GetType(), "Message Box", "<script language = 'javascript'>alert('dd')</script>");
+                        Response.Redirect("/");
+                    }
+                    else
+                    {
+                        mess += "- Username หรือ Password ไม่ถูกต้อง";
+                    }
+                }
+                else
+                {
+                    mess += "- Username หรือ Password ไม่ถูกต้อง";
+                }
+                rs.Close();
+                function.Close();
+            }
+
+            if (mess != "")
+            {
+                MsgBox(mess);
+            }
+            else
+            {
+                msgBox.Text = "";
+            }
+           
+        }
+    }
+}

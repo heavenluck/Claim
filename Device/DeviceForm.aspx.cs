@@ -56,13 +56,13 @@ namespace ClaimProject.Device
         protected void DeviceGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {
             DeviceGridView.EditIndex = e.NewEditIndex;
-            BindData("");
+            BindData(txtSearch.Text);
         }
 
         protected void DeviceGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             DeviceGridView.EditIndex = -1;
-            BindData("");
+            BindData(txtSearch.Text);
         }
 
         protected void DeviceGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -82,7 +82,8 @@ namespace ClaimProject.Device
             function.Close();
             ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('" + script + "')", true);
             DeviceGridView.EditIndex = -1;
-            BindData("");
+            BindData(txtSearch.Text);
+            txtSearch.Text = "";
         }
 
         protected void DeviceGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -100,7 +101,8 @@ namespace ClaimProject.Device
             function.Close();
             ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('" + script + "')", true);
             DeviceGridView.EditIndex = -1;
-            BindData("");
+            BindData(txtSearch.Text);
+            txtSearch.Text = "";
         }
 
         protected void btnDeviceAdd_Click(object sender, EventArgs e)
@@ -120,7 +122,8 @@ namespace ClaimProject.Device
                 function.Close();
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('" + script + "')", true);
                 DeviceGridView.EditIndex = -1;
-                BindData("");
+                BindData(txtDeviceName.Text);
+                txtDeviceName.Text = "";
             }
             else
             {

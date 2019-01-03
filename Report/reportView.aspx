@@ -21,13 +21,30 @@
     </style>
 </head>
 <body style="font-family: 'THSarabun,THSarabunIT๙'">
-    <form id="form1" runat="server">
-        <div>
+    <form id="iframe" runat="server">
+        <div id="dvReport">
+            <asp:Button runat="server" ID="btnPrint" Text="พิมพ์" OnClick="btnPrint_Click" />
+            <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
             <CR:CrystalReportViewer ID="resultReportLeave" runat="server"
-                EnableParameterPrompt="False"
-                ToolPanelView="None" GroupTreeStyle-ShowLines="False" HasCrystalLogo="False" HasToggleGroupTreeButton="False"
-                PrintMode="ActiveX" />
+                EnableParameterPrompt="False" 
+                ToolPanelView="None" GroupTreeStyle-ShowLines="False" HasCrystalLogo="False" HasToggleGroupTreeButton="False" PrintMode="ActiveX" />
         </div>
     </form>
+    <script type="text/javascript">
+        function Print() {
+            var dvReport = document.getElementById("dvReport");
+            var frame1 = dvReport.getElementsByTagName("iframe")[0];
+            if (navigator.appName.indexOf("Internet Explorer") != -1 || navigator.appVersion.indexOf("Trident") != -1) {
+                frame1.name = frame1.id;
+                window.frames[frame1.id].focus();
+                window.frames[frame1.id].print();
+            }
+            else {
+                var frameDoc = frame1.contentWindow ? frame1.contentWindow : frame1.contentDocument.document ? frame1.contentDocument.document : frame1.contentDocument;
+                frameDoc.print();
+            }
+        }
+
+    </script>
 </body>
 </html>

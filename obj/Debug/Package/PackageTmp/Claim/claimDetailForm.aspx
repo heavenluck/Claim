@@ -14,19 +14,20 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">ด่านฯ </label>
                                 <asp:DropDownList ID="txtCpoint" runat="server" CssClass="form-control custom-select"></asp:DropDownList>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group bmd-form-group">
                                 <label class="bmd-label-floating">Annex </label>
-                                <asp:TextBox ID="txtPoint" runat="server" CssClass="form-control" ToolTip="Annex เช่น 1 หรือ 2 หรือเว้นว่าง" />
+                                <asp:TextBox ID="txtPoint" runat="server" CssClass="form-control col-md-3" ToolTip="Annex เช่น 1 หรือ 2 หรือเว้นว่าง" />
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group bmd-form-group">
                                 <label class="bmd-label-floating">เลขที่บันทึกเจ้าหน้าที่คอม 4 หลัก</label>
-                                <asp:TextBox ID="txtCpointNote" runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="txtCpointNote" runat="server" CssClass="form-control col-md-3" />
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -57,6 +58,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">ผลัด </label>
                                 <asp:DropDownList ID="txtAround" runat="server" CssClass="form-control custom-select"></asp:DropDownList>
                             </div>
                         </div>
@@ -78,6 +80,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">ตำแหน่ง </label>
                                 <asp:DropDownList ID="txtPosAleat" runat="server" CssClass="form-control custom-select"></asp:DropDownList>
                             </div>
                         </div>
@@ -105,12 +108,26 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group bmd-form-group">
-                                <label class="bmd-label-floating">รถคู่กรณีเป็นรถ ยี่ห้อ สี</label>
-                                <asp:TextBox ID="txtCar" runat="server" CssClass="form-control"></asp:TextBox>
+                                <label class="bmd-label-floating">รถคู่กรณีเป็นรถ</label>
+                                <asp:DropDownList ID="txtTypeCar" runat="server" CssClass="combobox form-control"></asp:DropDownList>
                             </div>
                         </div>
+                        <div class="col-md-2">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">ยี่ห้อ</label>
+                                <asp:DropDownList ID="txtBrandCar" runat="server" CssClass="combobox form-control"></asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">สีรถ</label>
+                                <asp:TextBox ID="txtColorCar" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-2">
                             <div class="form-group bmd-form-group">
                                 <label class="bmd-label-floating">หมายเลขทะเบียน</label>
@@ -151,8 +168,8 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group bmd-form-group">
-                                <label class="bmd-label-floating">เลขที่บัตรประจำตัวประชาชน 13 หลัก</label>
-                                <asp:TextBox ID="txtIdcard" runat="server" CssClass="form-control"></asp:TextBox>
+                                <label class="bmd-label-floating">เลขที่บัตรประจำตัวประชาชน 13 หลัก <br/>(ไม่มีขีด เช่น 1234567890123)</label>
+                                <asp:TextBox ID="txtIdcard" runat="server" CssClass="form-control" ToolTip="ไม่มีขีด เช่น 1234567890123"></asp:TextBox>
                             </div>
                         </div>
                         <!--</div>
@@ -212,6 +229,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group bmd-form-group">
+                            <label class="bmd-label-floating">ตำแหน่ง </label>
                             <asp:DropDownList ID="txtPosSup" runat="server" CssClass="form-control custom-select"></asp:DropDownList>
                         </div>
                     </div>
@@ -225,6 +243,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group bmd-form-group">
+                            <label class="bmd-label-floating">ตำแหน่ง </label>
                             <asp:DropDownList ID="txtPosCom" runat="server" CssClass="form-control custom-select"></asp:DropDownList>
                         </div>
                     </div>
@@ -261,11 +280,18 @@
                 <hr />
                 <h3 class="card-title alert-warning">รายการอุปกรณ์ที่ได้รับความเสียหาย</h3>
                 <div class="row">
+                    <div class="col-md">
+                        <asp:CheckBox ID="CheckDeviceNotDamaged" runat="server" AutoPostBack="true" OnCheckedChanged="CheckDeviceNotDamaged_CheckedChanged" />
+                        <label>อุปกรณ์ไม่ได้รับความเสียหาย</label>
+                    </div>
+                </div>
+                <div class="row" id="DivDamaged" runat="server">
                     <div class="col-md-5">
                         <div class="form-group">
                             <label class="bmd-label-floating">อุปกรณ์ที่ได้รับความเสียหาย</label>
                             <asp:DropDownList ID="txtDevice" runat="server" CssClass="combobox form-control custom-select"></asp:DropDownList>
                         </div>
+                        <span class="text-danger" style="font-size:large;">***ถ้าไม่มีอุปกรณ์ในรายการให้แจ้ง Helpdesk งานเทคโนฯ เพื่อเพิ่มอุปกรณ์ให้</span>
                     </div>
                     <div class="col-md-2">
                         <div class="form">
@@ -407,9 +433,9 @@
             </div>
             <div class="row">
                 <div class="col-md text-center">
-                    <asp:Button ID="btnSaveReport" runat="server" Text="&#xf0c7; บันทึก" Font-Size="Large" CssClass="btn btn-info fa btn-sm" OnClick="btnSaveReport_Click"></asp:Button>
-                    <asp:LinkButton ID="btnDelete" runat="server" Text="&#xf014; ลบข้อมูล" Font-Size="Large" CssClass="btn btn-danger fa btn-sm" OnClick="btnDelete_Click" />
-                    <!--<asp:LinkButton ID="btnPrintNoteSup" runat="server" Text="&#xf02f; พิมพ์บันทึกข้อความ (รายงานเบื้องต้น)" Font-Size="Large" CssClass="btn btn-dark fa btn-sm" OnClick="btnPrintNoteSup_Click" />-->
+                    <asp:LinkButton ID="btnSaveReport" runat="server" Text="&#xf0c7; บันทึก" Font-Size="Large" CssClass="btn btn-info fa btn-sm" OnClick="btnSaveReport_Click"></asp:LinkButton>
+                    <asp:LinkButton ID="btnDelete" runat="server" Text="&#xf014; ลบข้อมูล" Font-Size="Large" CssClass="btn btn-danger fa btn-sm" OnClick="btnDelete_Click"  OnClientClick="return CompareConfirm('ยืนยัน คุณต้องการลบข้อมูล ใช่หรือไม่')"/>
+                    <asp:LinkButton ID="btnTechno" runat="server" Text="ไปหน้าขอใบเสนอราคา" Font-Size="Large" CssClass="btn btn-warning fa btn-sm" OnClick="btnTechno_Click" />
                     <br />
                     &nbsp;
                 </div>
@@ -457,5 +483,19 @@
         }
             %>
         });
+    </script>
+    <script type="text/javascript">
+        function CompareConfirm(msg) {
+            var str1 = "1";
+            var str2 = "2";
+
+            if (str1 === str2) {
+                // your logic here
+                return false;
+            } else {
+                // your logic here
+                return confirm(msg);
+            }
+        }
     </script>
 </asp:Content>

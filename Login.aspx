@@ -53,7 +53,15 @@
                                 </div>
                                 <asp:TextBox TextMode="Password" ID="txtPass" runat="server" CssClass="form-control" placeholder="Password" MaxLength="20"></asp:TextBox><br />
                             </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text fa fa-road" style="font-size: x-large; width: 50px;"></span>
+                                </div>
+                                <asp:DropDownList ID="txtCpoint" runat="server" CssClass="form-control"></asp:DropDownList>
+                            </div>
                             <asp:Button ID="btnSubmit" runat="server" Text="Login" CssClass="btn btn-warning col-6" OnClick="btnSubmit_Click1" />
+                            <br />
+                            <asp:LinkButton ID="linkDownload" runat="server" OnClick="linkDownload_Click">Download Google Chrome</asp:LinkButton>
                         </div>
                     </div>
                 </form>

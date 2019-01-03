@@ -31,6 +31,8 @@ namespace ClaimProject.Techno
                 {
                     BindData("", status, year);
                 }
+                
+
             }
         }
 
@@ -145,6 +147,10 @@ namespace ClaimProject.Techno
                 ClaimGridView.DataSource = ds.Tables[0];
                 ClaimGridView.DataBind();
                 lbClaimNull.Text = "พบข้อมูลจำนวน " + ds.Tables[0].Rows.Count + " แถว";
+                if (status == "6")
+                {
+                    ClaimGridView.Columns[5].Visible = false;
+                }
             }
             catch { }
         }

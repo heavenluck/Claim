@@ -23,7 +23,7 @@ namespace ClaimProject.User.Add
 
             if (!this.IsPostBack)
             {
-                function.GetListLevel(txtLevel,int.Parse(Session["UserPrivilegeId"].ToString()));
+                function.GetListLevel(txtLevel, int.Parse(Session["UserPrivilegeId"].ToString()));
                 BindData();
             }
         }
@@ -32,11 +32,11 @@ namespace ClaimProject.User.Add
         {
             txtUser.Text = "";
             txtName.Text = "";
-            txtCodeCpoint.Text = "";
             string sql = "";
             //string search = "";
-            if (Session["UserPrivilegeId"].ToString() != "0") {
-                sql = "SELECT * FROM tbl_user where level <> 0 and delete_status = '0' and username <> '" + Session["User"].ToString() + "' AND (username LIKE '%"+TextBox1.Text+ "%' OR NAME LIKE '%" + TextBox1.Text + "%' OR LEVEL LIKE '%" + TextBox1.Text + "%' OR user_cpoint LIKE '%" + TextBox1.Text + "%')";
+            if (Session["UserPrivilegeId"].ToString() != "0")
+            {
+                sql = "SELECT * FROM tbl_user where level <> 0 and delete_status = '0' and username <> '" + Session["User"].ToString() + "' AND (username LIKE '%" + TextBox1.Text + "%' OR NAME LIKE '%" + TextBox1.Text + "%' OR LEVEL LIKE '%" + TextBox1.Text + "%' OR user_cpoint LIKE '%" + TextBox1.Text + "%')";
             }
             else
             {
@@ -88,16 +88,20 @@ namespace ClaimProject.User.Add
         protected void UserGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             string sqlUser = "";
-            if (Session["UserPrivilegeId"].ToString()=="0")
+            if (Session["UserPrivilegeId"].ToString() == "0")
             {
                 TextBox txtEUser = (TextBox)UserGridView.Rows[e.RowIndex].FindControl("txtEUser");
-                sqlUser = "username='"+ txtEUser .Text+ "',";
+                sqlUser = "username='" + txtEUser.Text + "',";
             }
             TextBox txtEName = (TextBox)UserGridView.Rows[e.RowIndex].FindControl("txtEName");
             DropDownList txtEPrivilege = (DropDownList)UserGridView.Rows[e.RowIndex].FindControl("txtEPrivilege");
-            TextBox txtECpoint = (TextBox)UserGridView.Rows[e.RowIndex].FindControl("txtECpoint");
+            string cpoint = "1";
+            if (txtEPrivilege.SelectedValue != "2" && txtEPrivilege.SelectedValue != "3")
+            {
+                cpoint = "0";
+            }
 
-            string sql = "UPDATE tbl_user SET "+ sqlUser + " name='" + txtEName.Text + "',level='" + txtEPrivilege.SelectedValue + "',user_cpoint='"+txtECpoint.Text+ "' WHERE id = '" + UserGridView.DataKeys[e.RowIndex].Value + "'";
+            string sql = "UPDATE tbl_user SET " + sqlUser + " name='" + txtEName.Text + "',level='" + txtEPrivilege.SelectedValue + "',user_cpoint = '" + cpoint + "' WHERE id = '" + UserGridView.DataKeys[e.RowIndex].Value + "'";
             string script = "";
             if (function.MySqlQuery(sql))
             {
@@ -136,12 +140,17 @@ namespace ClaimProject.User.Add
         {
             if (txtPass.Text == txtPass.Text)
             {
-                string sql_check = "SELECT * FROM tbl_user WHERE username = '"+txtUser.Text.Trim()+"'";
+                string sql_check = "SELECT * FROM tbl_user WHERE username = '" + txtUser.Text.Trim() + "'";
                 string script = "";
+                string cpoint = "1";
+                if (txtLevel.SelectedValue != "2" && txtLevel.SelectedValue != "3")
+                {
+                    cpoint = "0";
+                }
                 MySqlDataReader rs = function.MySqlSelect(sql_check);
                 if (!rs.Read())
                 {
-                    string sql = "INSERT INTO tbl_user (username,password,name,level,user_cpoint) VALUES ('" + txtUser.Text.Trim() + "','" + txtPass.Text.Trim() + "','" + txtName.Text + "','" + txtLevel.SelectedValue + "','" + txtCodeCpoint.Text.Trim() + "')";
+                    string sql = "INSERT INTO tbl_user (username,password,name,level,user_cpoint,delete_status) VALUES ('" + txtUser.Text.Trim() + "','" + txtPass.Text.Trim() + "','" + txtName.Text + "','" + txtLevel.SelectedValue + "','" + cpoint + "','0')";
                     if (function.MySqlQuery(sql))
                     {
                         script = "บันทึกข้อมูลสำเร็จ";

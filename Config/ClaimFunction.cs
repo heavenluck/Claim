@@ -3,18 +3,20 @@ using System;
 using System.Data;
 using System.Globalization;
 using System.IO;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web.Hosting;
 using System.Web.UI.WebControls;
 
 namespace ClaimProject.Config
-{       
+{
     public class ClaimFunction
     {
         //ClaimConnection conn = new ClaimConnection();
         public MySqlConnection conn;
-        string strConnString = "Server=localhost;User Id=root; Password=admin25;charset=tis620; Database=db_claim; Pooling=false";
+        //string strConnString = "Server=10.6.3.201;User Id=adminclaim; Password=admin25;charset=utf8; Database=db_claim; Pooling=false";  //Depoly
+        string strConnString = "Server=localhost;User Id=root; Password=admin25;charset=utf8; Database=db_claim; Pooling=false";
 
         public void getListItem(DropDownList list, string sql, string text, string value)
         {
@@ -271,7 +273,7 @@ namespace ClaimProject.Config
         public string GeneratorPK(int cpoint)
         {
             string pk = cpoint.ToString();
-            long code = long.Parse(DateTime.Now.ToString("yyyyMMddHHmmss"))+ new Random().Next(100000000, 999999999);
+            long code = long.Parse(DateTime.Now.ToString("yyyyMMddHHmmss")) + new Random().Next(100000000, 999999999);
             while (code.ToString().Length > 10)
             {
                 code = code / cpoint;
@@ -352,9 +354,9 @@ namespace ClaimProject.Config
 
         public DateTime ConvertDateTime(string date)
         {
-                string[] dSplit = date.Split('-');
-                DateTime dateTime = DateTime.ParseExact(dSplit[0] + "-" + dSplit[1] + "-" + (int.Parse(dSplit[2]) - 543), "dd-MM-yyyy", CultureInfo.InvariantCulture);
-                return dateTime;
+            string[] dSplit = date.Split('-');
+            DateTime dateTime = DateTime.ParseExact(dSplit[0] + "-" + dSplit[1] + "-" + (int.Parse(dSplit[2]) - 543), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+            return dateTime;
         }
         public DateTime ConvertDateTimeEB(string date)
         {
@@ -363,11 +365,11 @@ namespace ClaimProject.Config
             return dateTime;
         }
 
-        public string ConvertDateTime(string date,int addDay)
+        public string ConvertDateTime(string date, int addDay)
         {
             string[] dSplit = date.Split('-');
             DateTime dateTime = DateTime.ParseExact(dSplit[0] + "-" + dSplit[1] + "-" + (int.Parse(dSplit[2]) - 543), "dd-MM-yyyy", CultureInfo.InvariantCulture);
-            return dateTime.AddDays(addDay).ToString("dd-MM")+"-"+ (dateTime.AddDays(addDay).Year+543);
+            return dateTime.AddDays(addDay).ToString("dd-MM") + "-" + (dateTime.AddDays(addDay).Year + 543);
         }
 
         public string getBudgetYear(string date)
@@ -382,5 +384,74 @@ namespace ClaimProject.Config
                 return (dateTime.Year + 1).ToString();
             }
         }
+
+        public bool CheckLevel(string allow, string level)
+        {
+            switch (allow)
+            {
+                case "Department":
+                    if (level == "0" || level == "1" || level == "4")
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                case "Techno":
+                    if (level == "0" || level == "1")
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                case "Admin":
+                    if (level == "0")
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                default: return false;
+            }
+        }
+        public void Set_Max_Connection()
+        {
+            try
+            {
+                string sql = "SET global max_connections = 1000000";
+                conn = new MySqlConnection(strConnString);
+                conn.Open();
+                MySqlCommand comm = conn.CreateCommand();
+                comm.CommandText = sql;
+                comm.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch { conn.Close(); }
+        }
+        /*public void MessageLine(string token, string msg)
+        {
+            // https://notify-bot.line.me/my/ เข้าเว็บ
+            var request = (HttpWebRequest)WebRequest.Create("https://notify-api.line.me/api/notify");
+            var postData = string.Format("message={0}", msg);
+            var data = Encoding.UTF8.GetBytes(postData);
+
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = data.Length;
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            using (var stream = request.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+
+            var response = (HttpWebResponse)request.GetResponse();
+            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+        }*/
     }
 }

@@ -18,14 +18,14 @@ namespace ClaimProject.Techno
     {
         ClaimFunction function = new ClaimFunction();
         public string Quotations_id = "";
-        int Quotations = 7;
+        int Quotations = 3;
         int SendTo = 15;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] != null)
+            if (Session["codePK"] != null)
             {
-                if (Session["UserCpoint"].ToString() != "0")
+                if (!function.CheckLevel("Department", Session["UserPrivilegeId"].ToString()))
                 {
                     Response.Redirect("/Claim/claimForm");
                 }
@@ -98,6 +98,10 @@ namespace ClaimProject.Techno
                     getDataStatus5();
                 }
             }
+            else
+            {
+                Response.Redirect("/");
+            }
         }
 
         void PageLoadData()
@@ -107,7 +111,15 @@ namespace ClaimProject.Techno
             MySqlDataReader rs = function.MySqlSelect(sql);
             if (rs.Read())
             {
-                EnableBtn(rs.GetString("status_id"));
+                if (function.CheckLevel("Techno", Session["UserPrivilegeId"].ToString()))
+                {
+                    EnableBtn(rs.GetString("status_id"));
+                }
+                else
+                {
+                    EnableBtn("7");
+                }
+                
                 Session["status_id"] = rs.GetString("status_id");
                 lbTitle.Text = rs.GetString("claim_equipment");
                 lbTitleStatus.CssClass = "badge badge-" + rs.GetString("status_alert");
@@ -171,6 +183,7 @@ namespace ClaimProject.Techno
             switch (status)
             {
                 case "1":
+                    btns0.Visible = true;
                     btns1.Visible = true;
                     btns2.Visible = false;
                     btns3.Visible = false;
@@ -181,6 +194,7 @@ namespace ClaimProject.Techno
                     Div4.Visible = false;
                     break;
                 case "2":
+                    btns0.Visible = false;
                     btns1.Visible = true;
                     btns2.Visible = true;
                     btns3.Visible = false;
@@ -191,6 +205,7 @@ namespace ClaimProject.Techno
                     Div4.Visible = false;
                     break;
                 case "3":
+                    btns0.Visible = false;
                     btns1.Visible = false;
                     btns2.Visible = false;
                     btns3.Visible = true;
@@ -201,6 +216,7 @@ namespace ClaimProject.Techno
                     Div4.Visible = false;
                     break;
                 case "4":
+                    btns0.Visible = false;
                     btns1.Visible = false;
                     btns2.Visible = false;
                     btns3.Visible = false;
@@ -211,6 +227,7 @@ namespace ClaimProject.Techno
                     Div4.Visible = false;
                     break;
                 case "5":
+                    btns0.Visible = false;
                     btns1.Visible = false;
                     btns2.Visible = false;
                     btns3.Visible = false;
@@ -219,6 +236,28 @@ namespace ClaimProject.Techno
                     Div2.Visible = true;
                     Div3.Visible = true;
                     Div4.Visible = true;
+                    break;
+                case "6":
+                    btns0.Visible = true;
+                    btns1.Visible = false;
+                    btns2.Visible = false;
+                    btns3.Visible = false;
+                    btns4.Visible = false;
+                    Div1.Visible = false;
+                    Div2.Visible = false;
+                    Div3.Visible = false;
+                    Div4.Visible = false;
+                    break;
+                case "7":
+                    btns0.Visible = false;
+                    btns1.Visible = false;
+                    btns2.Visible = false;
+                    btns3.Visible = false;
+                    btns4.Visible = false;
+                    Div1.Visible = false;
+                    Div2.Visible = false;
+                    Div3.Visible = false;
+                    Div4.Visible = false;
                     break;
             }
         }
@@ -464,18 +503,20 @@ namespace ClaimProject.Techno
             function.Close();
 
             string date = function.ConvertDatelongThai(function.GetSelectValue("tbl_quotations", "quotations_id='" + key + "'", "quotations_date_send"));
+            string dateSet = function.ConvertDatelongThai(function.GetSelectValue("tbl_status_detail", "detail_claim_id='" + Session["codePK"].ToString() + "' AND detail_status_id = '2'", "detail_date_end"));
             string note_num = "คค.060005/ฝจ./" + function.GetSelectValue("tbl_quotations", "quotations_id='" + key + "'", "quotations_note_number") + "/" + date.Split(' ')[2];
-            string title_name = "ขอความอนุเคราะห์เสนอราคาอุปกรณ์";
+            string title_name = "ขอความอนุเคราะห์ประเมินและเสนอราคางานอุบัติเหตุ";
             string send_to = "ผู้จัดการ " + function.GetSelectValue("tbl_quotations JOIN tbl_company ON company_id=quotations_company_id", "quotations_id='" + key + "'", "company_name"); ;
             string cpoint = function.GetSelectValue("tbl_claim JOIN tbl_cpoint ON claim_cpoint = cpoint_id", "claim_id='" + Session["codePK"].ToString() + "'", "cpoint_name");
 
             ReportDocument rpt = new ReportDocument();
             rpt.Load(Server.MapPath("/Techno/Quotations.rpt"));
-
+            Session["pathReport"] = "/Techno/Quotations.rpt";
             rpt.SetParameterValue("part_img", Server.MapPath("/Claim/300px-Thai_government_Garuda_emblem_(Version_2).jpg"));
             rpt.SetParameterValue("device", Device);
             rpt.SetParameterValue("note_num", note_num.Trim());
             rpt.SetParameterValue("date", date);
+            rpt.SetParameterValue("dateSet", dateSet);
             rpt.SetParameterValue("title_name", title_name);
             rpt.SetParameterValue("send_to", send_to);
             rpt.SetParameterValue("cpoint", cpoint);
@@ -486,8 +527,8 @@ namespace ClaimProject.Techno
                 rpt.SetParameterValue("copy_title", "สำเนา");
                 rpt.SetParameterValue("name", "ลงชื่อ          เผชิญ หุนตระนี");
                 rpt.SetParameterValue("copy", "2.) สำเนาเรียน");
-                rpt.SetParameterValue("copy1", "หจ.จท.1, หจ.จท.2, หจ.จท.3, งานเทคโน");
-                rpt.SetParameterValue("copy_detail", "- เพื่อโปรดทราบ");
+                rpt.SetParameterValue("copy1", "หจ.จท.1, หจ.จท.2, หจ.จท.3, งานเทคโนฯ");
+                rpt.SetParameterValue("copy_detail", "- เพื่อทราบ");
                 rpt.SetParameterValue("name_copy", "(นายเผชิญ หุนตระนี)\r\n                                            ผจท.");
             }
             else
@@ -583,10 +624,11 @@ namespace ClaimProject.Techno
 
             // textbox needs a unique id to maintain state information
             newTextbox.ID = "txtDoc_" + controlNumber;
-            newTextbox.CssClass = "form-control text-center";
+            newTextbox.CssClass = "form-control text-center col-md-3";
 
 
-            newLabel.Text = text;
+            newLabel.Text = text+" ";
+            newLabel.CssClass = "col-md-6";
             newLabelEnd.Text = " ฉบับ";
 
             // add the label and textbox to the panel, then add the panel to the form
@@ -594,6 +636,7 @@ namespace ClaimProject.Techno
             Div.Controls.Add(newLabel);
             Div.Controls.Add(newTextbox);
             Div.Controls.Add(newLabelEnd);
+            Div.Controls.Add(new LiteralControl("<hr/>"));
             Div.Controls.Add(new LiteralControl("</il>"));
         }
 
@@ -662,7 +705,7 @@ namespace ClaimProject.Techno
             txt_to = txtNoteSendTo.Text.Trim();
 
 
-            string sql = "SELECT * FROM tbl_claim c JOIN tbl_claim_com cc ON c.claim_id = cc.claim_id JOIN tbl_claim_doc cd ON c.claim_id = cd.claim_doc_id AND claim_doc_type = '0' JOIN tbl_cpoint cp ON c.claim_cpoint = cp.cpoint_id WHERE c.claim_id = '" + Session["CodePK"].ToString() + "'";
+            string sql = "SELECT * FROM tbl_claim c JOIN tbl_claim_com cc ON c.claim_id = cc.claim_id JOIN tbl_claim_doc cd ON c.claim_id = cd.claim_doc_id AND claim_doc_type = '1' JOIN tbl_cpoint cp ON c.claim_cpoint = cp.cpoint_id WHERE c.claim_id = '" + Session["CodePK"].ToString() + "'";
             MySqlDataReader rs = function.MySqlSelect(sql);
             if (rs.Read())
             {
@@ -991,6 +1034,20 @@ namespace ClaimProject.Techno
                     function.MySqlQuery(sql_update);
                     //ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('บันทึกสำเร็จ')", true);
                 }
+            }
+        }
+
+        protected void btns0_Click(object sender, EventArgs e)
+        {
+            string sql = "UPDATE tbl_claim SET claim_delete = '1' WHERE claim_id = '"+ Session["CodePK"].ToString() + "'";
+            if (function.MySqlQuery(sql))
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('Success : ลบข้อมูลสำเร็จ')", true);
+                Response.Redirect("/");
+            }
+            else
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('Error : ลบข้อมูลล้มเหลว ')", true);
             }
         }
     }

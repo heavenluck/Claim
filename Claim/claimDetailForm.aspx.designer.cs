@@ -166,13 +166,31 @@ namespace ClaimProject.Claim {
         protected global::System.Web.UI.WebControls.TextBox txtDirection;
         
         /// <summary>
-        /// txtCar control.
+        /// txtTypeCar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCar;
+        protected global::System.Web.UI.WebControls.DropDownList txtTypeCar;
+        
+        /// <summary>
+        /// txtBrandCar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList txtBrandCar;
+        
+        /// <summary>
+        /// txtColorCar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtColorCar;
         
         /// <summary>
         /// txtLicensePlate control.
@@ -364,6 +382,24 @@ namespace ClaimProject.Claim {
         protected global::System.Web.UI.WebControls.Label LabelCom;
         
         /// <summary>
+        /// CheckDeviceNotDamaged control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckDeviceNotDamaged;
+        
+        /// <summary>
+        /// DivDamaged control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivDamaged;
+        
+        /// <summary>
         /// txtDevice control.
         /// </summary>
         /// <remarks>
@@ -496,7 +532,7 @@ namespace ClaimProject.Claim {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveReport;
+        protected global::System.Web.UI.WebControls.LinkButton btnSaveReport;
         
         /// <summary>
         /// btnDelete control.
@@ -508,12 +544,12 @@ namespace ClaimProject.Claim {
         protected global::System.Web.UI.WebControls.LinkButton btnDelete;
         
         /// <summary>
-        /// btnPrintNoteSup control.
+        /// btnTechno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnPrintNoteSup;
+        protected global::System.Web.UI.WebControls.LinkButton btnTechno;
     }
 }

@@ -101,6 +101,12 @@
                                 <p>พิมพ์รายงาน</p>
                             </a>
                         </li>
+                        <li class="nav-item" runat="server" id="Li1">
+                            <a class="nav-link" href="http://192.168.101.91:90/webboard/viewforum.php?f=4&sid=b612e1a12b01c2f0acc3094666e19434" target="_blank">
+                                <i class="fa fa-copy" style="font-size: 22px;"></i>
+                                <p>ถาม-ตอบปัญหาการใช้งาน</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -190,6 +196,7 @@
             //datepicker
             $(".datepicker").datepicker($.datepicker.regional["th"]);
             $(".datepicker").attr('readonly', true);
+            $(".notreadonly").attr('readonly', false);
             if ($(".datepicker").val() == "") {
                 $(".datepicker").datepicker("setDate", new Date());
             }
@@ -202,6 +209,8 @@
                 if ($(".datepicker").val() == "") {
                     $(".datepicker").datepicker("setDate", new Date());
                 }
+                //$(".notreadonly").val("");
+            
             }
         });
 

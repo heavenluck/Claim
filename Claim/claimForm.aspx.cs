@@ -22,26 +22,61 @@ namespace ClaimProject.Claim
         {
             if (!this.IsPostBack)
             {
-                BindData("");
+                string date = DateTime.Now.ToString("dd-MM") + "-" + (DateTime.Now.Year + 543);
+                BindData(date.Split('-')[2]);
+                function.getListItem(txtSearchYear, "SELECT claim_budget_year FROM tbl_claim c GROUP BY claim_budget_year ORDER by claim_budget_year DESC", "claim_budget_year", "claim_budget_year");
+                function.getListItem(txtSearchStatus, "SELECT * FROM tbl_status ORDER by status_id", "status_name", "status_id");
+                txtSearchStatus.Items.Insert(0, new ListItem("ทั้งหมด", ""));
+                txtSearchYear.SelectedValue = function.getBudgetYear(date);
+
+                string sql = "";
+                if (Session["UserCpoint"] != null)
+                {
+                    if (Session["UserCpoint"].ToString() == "0")
+                    {
+                        sql = "SELECT * FROM tbl_cpoint ORDER BY cpoint_id";
+                        function.getListItem(txtSearchCpoint, sql, "cpoint_name", "cpoint_id");
+                        txtSearchCpoint.Items.Insert(0, new ListItem("ทั้งหมด", ""));
+                    }
+                    else
+                    {
+                        sql = "SELECT * FROM tbl_cpoint WHERE cpoint_id = '" + Session["UserCpoint"].ToString() + "'";
+                        function.getListItem(txtSearchCpoint, sql, "cpoint_name", "cpoint_id");
+                    }
+
+                }
+                else
+                {
+                    Response.Redirect("/");
+                }
+            }
+            if (Session["UserPrivilegeId"].ToString() == "4")
+            {
+                btnAddClaim.Visible = false;
             }
         }
 
 
-        void BindData(string txtSearch)
+        void BindData(string month)
         {
             string sql = "";
-            try
+            if (Session["User"] != null)
             {
-                if (Session["UserCpoint"].ToString() == "0")
+                if (month != "")
                 {
-                    sql = "SELECT * FROM tbl_claim c JOIN tbl_cpoint ON claim_cpoint = cpoint_id JOIN tbl_status ON status_id = claim_status LEFT JOIN tbl_user ON username=claim_user_start_claim JOIN tbl_status_detail sd ON sd.detail_claim_id = c.claim_id AND sd.detail_status_id = c.claim_status WHERE claim_delete = '0' AND (cpoint_name LIKE '%" + txtSearch + "%' OR claim_cpoint_note LIKE '%" + txtSearch + "%' OR claim_equipment LIKE '%" + txtSearch + "%' ) ORDER BY status_id ASC, STR_TO_DATE(claim_cpoint_date, '%d-%m-%Y') ASC";
+                    sql = "SELECT * FROM tbl_claim c JOIN tbl_cpoint ON claim_cpoint = cpoint_id JOIN tbl_status ON status_id = claim_status LEFT JOIN tbl_user ON username=claim_user_start_claim JOIN tbl_status_detail sd ON sd.detail_claim_id = c.claim_id AND sd.detail_status_id = c.claim_status WHERE claim_delete = '0' AND (cpoint_id Like '%" + Session["UserCpoint"].ToString() + "%' AND claim_cpoint_note LIKE '%" + txtSearchComNumber.Text + "%' AND claim_equipment LIKE '%" + txtSearchComTitle.Text + "%' AND claim_budget_year = '" + txtSearchYear.SelectedValue + "' AND claim_start_date LIKE '%" + month + "%' AND claim_status LIKE '%" + txtSearchStatus.SelectedValue + "%' ) ORDER BY status_id ASC, STR_TO_DATE(claim_cpoint_date, '%d-%m-%Y') DESC";
                     Session["sql"] = sql;
                 }
                 else
                 {
-                    sql = "SELECT * FROM tbl_claim c JOIN tbl_cpoint ON claim_cpoint = cpoint_id JOIN tbl_status ON status_id = claim_status LEFT JOIN tbl_user ON username=claim_user_start_claim JOIN tbl_status_detail sd ON sd.detail_claim_id = c.claim_id AND sd.detail_status_id = c.claim_status WHERE claim_delete = '0' AND (cpoint_name LIKE '%" + txtSearch + "%' OR claim_cpoint_note LIKE '%" + txtSearch + "%' OR claim_equipment LIKE '%" + txtSearch + "%' ) AND claim_cpoint = '" + Session["UserCpoint"].ToString() + "' ORDER BY status_id ASC, STR_TO_DATE(claim_cpoint_date, '%d-%m-%Y') ASC";
+                    sql = "SELECT * FROM tbl_claim c JOIN tbl_cpoint ON claim_cpoint = cpoint_id JOIN tbl_status ON status_id = claim_status LEFT JOIN tbl_user ON username=claim_user_start_claim JOIN tbl_status_detail sd ON sd.detail_claim_id = c.claim_id AND sd.detail_status_id = c.claim_status WHERE claim_delete = '0' AND (cpoint_id Like '%" + txtSearchCpoint.SelectedValue + "%' AND claim_cpoint_note LIKE '%" + txtSearchComNumber.Text + "%' AND claim_equipment LIKE '%" + txtSearchComTitle.Text + "%' AND claim_budget_year = '" + txtSearchYear.SelectedValue + "' AND claim_start_date LIKE '%" + txtSearchDate.Text + "%' AND claim_status LIKE '%" + txtSearchStatus.SelectedValue + "%') ORDER BY status_id ASC, STR_TO_DATE(claim_cpoint_date, '%d-%m-%Y') DESC";
                     Session["sql"] = sql;
                 }
+            }
+
+            try
+            {
+
 
                 MySqlDataAdapter da = function.MySqlSelectDataSet(sql);
                 System.Data.DataSet ds = new System.Data.DataSet();
@@ -118,6 +153,10 @@ namespace ClaimProject.Claim
             if (printReport1 != null)
             {
                 printReport1.CommandName = (string)DataBinder.Eval(e.Row.DataItem, "claim_id");
+                if (DataBinder.Eval(e.Row.DataItem, "claim_status").ToString() == "6")
+                {
+                    printReport1.Visible = false;
+                }
                 //printReport1.OnClientClick = "document.forms[0].target ='_blank';";
                 //printReport1.t
             }
@@ -126,6 +165,10 @@ namespace ClaimProject.Claim
             if (printReport2 != null)
             {
                 printReport2.CommandName = (string)DataBinder.Eval(e.Row.DataItem, "claim_id");
+                if (DataBinder.Eval(e.Row.DataItem, "claim_status").ToString() == "6")
+                {
+                    printReport2.Visible = false;
+                }
                 //printReport1.t
             }
 
@@ -207,7 +250,12 @@ namespace ClaimProject.Claim
 
             Session["codePK"] = e.CommandName;
             Session["View"] = false;
-            if (function.GetSelectValue("tbl_claim", "claim_id='" + e.CommandName + "'", "claim_status") != "1")
+            if (function.GetSelectValue("tbl_claim", "claim_id='" + e.CommandName + "'", "claim_status") != "1" && function.GetSelectValue("tbl_claim", "claim_id='" + e.CommandName + "'", "claim_status") != "6")
+            {
+                Session["View"] = true;
+            }
+
+            if (Session["UserPrivilegeId"].ToString() == "4")
             {
                 Session["View"] = true;
             }
@@ -217,7 +265,7 @@ namespace ClaimProject.Claim
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            BindData(txtSearch.Text.Trim());
+            BindData("");
         }
 
         protected void ClaimGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -304,7 +352,7 @@ namespace ClaimProject.Claim
                 supper = rs.GetString("claim_detail_supervisor");
                 supperPos = rs.GetString("claim_detail_supervisor_pos");
 
-                car = rs.GetString("claim_detail_car");
+                car = rs.GetString("claim_detail_car").Replace(",", "").ToUpper();
                 licensePlate = rs.GetString("claim_detail_license_plate");
                 licensePlate2 = rs.GetString("claim_detail_lp2");
                 province = rs.GetString("claim_detail_province");
@@ -328,9 +376,9 @@ namespace ClaimProject.Claim
             rs.Close();
             function.Close();
 
-            string strNote = "เนื่องด้วยเมื่อวันที่ " + function.ConvertDatelongThai(startDate) + " " + around + " เวลาประมาณ " + time + " น. ได้รับแจ้งจาก" + nameAleat + " " + posAleat + " ปฏิบัติหน้าที่ประจำด่านฯ " + cpointName;
+            string strNote = "เนื่องด้วยเมื่อวันที่ " + function.ConvertDatelongThai(startDate) + " " + around + " เวลาประมาณ " + time + " น. ได้รับแจ้งจาก" + nameAleat + " " + posAleat + " ปฏิบัติหน้าที่ประจำด่านฯ " + cpointName + (point != "" ? " " + point : "");
             if (cabinet != "") { strNote += " ตู้ " + cabinet; }
-            strNote += " " + direction + " ได้แจ้งว่าเกิดอุบัติเหตุ" + detail+" ตู้ "+ cabinet_claim + " จึงได้แจ้งรองผู้จัดการด่านฯ ประจำผลัด คือ " + supper + " ให้ทราบ";
+            strNote += " " + direction + " ได้แจ้งว่าเกิดอุบัติเหตุ" + detail + " ตู้ " + cabinet_claim + " จึงได้แจ้งรองผู้จัดการด่านฯ ประจำผลัด คือ " + supper + " ให้ทราบ";
             strNote += " หลังจากได้รับแจ้งเหตุเจ้าหน้าที่ควบคุมระบบและรองผู้จัดการด่านฯ ได้ลงไปตรวจสอบที่เกิดเหตุพร้อมบันทึกภาพไว้เป็นหลักฐาน พบคู่กรณีเป็น" + car;
 
             if (licensePlate == "" || licensePlate == "-" || licensePlate == "ไม่ทราบ")
@@ -342,7 +390,7 @@ namespace ClaimProject.Claim
                 strNote += " หมายเลขทะเบียน " + licensePlate;
 
                 if (licensePlate2 != "" && licensePlate2 != "-") { strNote += " ส่วนพ่วงหมายเลขทะเบียน " + licensePlate2; }
-                strNote += " จังหวัด" + province + " ขับรถมาจาก" + comeFrom + "มุ่งหน้า" + directionIn + " โดยมี" + nameDrive + " เลขที่บัตรประจำตัวประชาชนเลขที่ " + idcard + " ที่อยู่ " + address + (telDrive.Trim() != "" && telDrive.Trim() != "-" ? " หมายเลขโทรศัพท์ " + telDrive : "") + " เป็นผู้ขับรถยนต์คันดังกล่าว";
+                strNote += " จังหวัด" + province + " ขับรถมาจาก" + comeFrom + "มุ่งหน้า" + directionIn + " โดยมี" + nameDrive + " เลขที่บัตรประจำตัวประชาชน " + idcard + " ที่อยู่ " + address + (telDrive.Trim() != "" && telDrive.Trim() != "-" ? " หมายเลขโทรศัพท์ " + telDrive : "") + " เป็นผู้ขับรถยนต์คันดังกล่าว";
                 if (insurer.Trim() == "" || insurer.Trim() == "-")
                 {
                     strNote += " ซึ่งรถยนต์คันดังกล่าวไม่ได้ทำประกันไว้";
@@ -351,7 +399,7 @@ namespace ClaimProject.Claim
                 {
                     strNote += " ซึ่งรถยนต์คันดังกล่าวได้ทำประกันไว้กับ" + insurer + " หมายเลขเคลมเลขที่ " + clemence + " หมายเลขกรมธรรม์ " + policyholders;
                 }
-                strNote += " ทั้งนี้ ด่านฯ" + cpointName + " ได้ดำเนินการแจ้งความร้องทุกข์ไว้ที่ " + inform + " ไว้เป็นหลักฐานแล้ว";
+                strNote += " ทั้งนี้ ด่านฯ " + cpointName + (point != "" ? " " + point : "") + " ได้ดำเนินการแจ้งความร้องทุกข์ไว้ที่ " + inform + " ไว้เป็นหลักฐานแล้ว";
             }
 
             string name = "";
@@ -361,7 +409,7 @@ namespace ClaimProject.Claim
             string doc_num = "";
 
             string sql_com = "SELECT * FROM tbl_claim_com_working WHERE detail_com_id ='" + key + "'";
-            string sql_dev = "SELECT * FROM tbl_device_damaged d JOIN tbl_device dd ON d.device_id = dd.device_id WHERE claim_id ='" + key + "'";
+            string sql_dev = "SELECT * FROM tbl_device_damaged d JOIN tbl_device dd ON d.device_id = dd.device_id WHERE claim_id ='" + key + "' AND d.device_damaged_delete = '0'";
             int i = 1;
 
             if (report == 0)
@@ -460,7 +508,7 @@ namespace ClaimProject.Claim
             {
                 rpt.Load(Server.MapPath("/Claim/reportCom.rpt"));
                 doc_num = noteNumber;
-                rpt.SetParameterValue("list_com", com != "" ? com + "\r\n" : "");
+                rpt.SetParameterValue("list_com", com != "" ? com  : "");
                 rpt.SetParameterValue("name", name);
                 rpt.SetParameterValue("txt_to", noteTo);
                 rpt.SetParameterValue("note_title", title);
@@ -469,7 +517,7 @@ namespace ClaimProject.Claim
             else
             {
                 rpt.Load(Server.MapPath("/Claim/reportOfficialBooks.rpt"));
-                rpt.SetParameterValue("list_doc", listDoc != "" ? listDoc + "\r\n" : "");
+                rpt.SetParameterValue("list_doc", listDoc != "" ? listDoc : "");
                 rpt.SetParameterValue("name", "(" + cpoint_manager + ")\r\nผู้จัดการด่านฯ " + cpointName);
                 rpt.SetParameterValue("txt_to", noteTo1);
                 rpt.SetParameterValue("note_title", title2);
@@ -482,7 +530,7 @@ namespace ClaimProject.Claim
 
             rpt.SetParameterValue("part_img", Server.MapPath("/Claim/300px-Thai_government_Garuda_emblem_(Version_2).jpg"));
 
-            rpt.SetParameterValue("list_dev", dev + "\r\n");
+            rpt.SetParameterValue("list_dev", dev);
 
 
             Session["Report"] = rpt;

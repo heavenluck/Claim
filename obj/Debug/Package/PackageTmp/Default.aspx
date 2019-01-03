@@ -9,7 +9,6 @@
                 </div>
                 <div class="col-md-1">
                     <asp:DropDownList ID="txtYear" runat="server" AutoPostBack="true" CssClass="form-control" OnSelectedIndexChanged="txtYear_SelectedIndexChanged">
-                        <asp:ListItem>2562</asp:ListItem>
                     </asp:DropDownList>
                 </div>
             </div>
@@ -110,7 +109,51 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-6 col-sm-6" runat="server" id="Div3">
+                    <div class="card card-stats">
+                        <div class="card-header card-header-primary card-header-icon">
+                            <div class="card-icon">
+                                <i class="fa fa-car"></i>
+                            </div>
+                            <h4 class="card-category">รายงานเพื่อทราบ</h4>
+                            <h4 class="card-title">
+                                <asp:Label ID="lbReport" runat="server" Text="Label"></asp:Label>
+                            </h4>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="fa fa-th-list"></i>&nbsp
+                        <asp:LinkButton ID="btnReport" runat="server" OnClick="btnReport_Click">รายละเอียด</asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6" runat="server" id="Div6">
+                    <asp:Label ID="Label2" runat="server" Text="ประกาศข่าวสารในไลน์"></asp:Label><br />
+                    <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:ListItem Text="Toll:อุบัติเหตุ" Value="uQQdUNuFfBphgSugC3OUa1lSjmovi4XINOAe2VwIczo"></asp:ListItem>
+                        <asp:ListItem Text="ทดสอบ" Value="g0Zinn2LGsXH7MqNl6LqRRAloneiupRMel3VaC3TVdJ"></asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:TextBox ID="TextBox1" runat="server" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                    <asp:LinkButton ID="Button1" runat="server" Text="ส่ง" CssClass="btn btn-success" OnClientClick="return CompareConfirm('ยืนยันการส่งข้อมูล');" OnClick="Button1_Click" />
+                </div>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
+    <script type="text/javascript">
+        function CompareConfirm(msg) {
+            var str1 = "1";
+            var str2 = "2";
+
+            if (str1 === str2) {
+                // your logic here
+                return false;
+            } else {
+                // your logic here
+                return confirm(msg);
+            }
+        }
+    </script>
 </asp:Content>

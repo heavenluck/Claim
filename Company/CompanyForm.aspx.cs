@@ -56,13 +56,13 @@ namespace ClaimProject.Company
         protected void CompanyGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {
             CompanyGridView.EditIndex = e.NewEditIndex;
-            BindData("");
+            BindData(txtSearch.Text);
         }
 
         protected void CompanyGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             CompanyGridView.EditIndex = -1;
-            BindData("");
+            BindData(txtSearch.Text);
         }
 
         protected void CompanyGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -82,7 +82,8 @@ namespace ClaimProject.Company
             function.Close();
             ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('" + script + "')", true);
             CompanyGridView.EditIndex = -1;
-            BindData("");
+            BindData(txtSearch.Text);
+            txtSearch.Text = "";
         }
 
         protected void CompanyGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -100,7 +101,8 @@ namespace ClaimProject.Company
             function.Close();
             ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('" + script + "')", true);
             CompanyGridView.EditIndex = -1;
-            BindData("");
+            BindData(txtSearch.Text);
+            txtSearch.Text = "";
         }
 
         protected void btnCompanyAdd_Click(object sender, EventArgs e)
@@ -120,7 +122,8 @@ namespace ClaimProject.Company
                 function.Close();
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('" + script + "')", true);
                 CompanyGridView.EditIndex = -1;
-                BindData("");
+                BindData(txtCompanyName.Text);
+                txtCompanyName.Text = "";
             }
             else
             {

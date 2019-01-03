@@ -58,15 +58,6 @@ namespace ClaimProject.User.Add {
         protected global::System.Web.UI.WebControls.DropDownList txtLevel;
         
         /// <summary>
-        /// txtCodeCpoint control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodeCpoint;
-        
-        /// <summary>
         /// btnUserAdd control.
         /// </summary>
         /// <remarks>

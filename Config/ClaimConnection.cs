@@ -13,8 +13,8 @@ namespace ClaimProject.Config
 
         public MySqlConnection Conn { get => conn; set => conn = value; }
 
-        //string strConnString = "Server=10.6.3.175;User Id=adminclaim; Password=admin25;charset=tis620; Database=db_claim; Pooling=false";  //Depoly
-        string strConnString = "Server=localhost;User Id=root; Password=admin25;charset=tis620; Database=db_claim; Pooling=false";  //Test
+        string strConnString = "Server=10.6.3.201;User Id=adminclaim; Password=admin25;charset=tis620; Database=db_claim; Pooling=false";  //Depoly
+        //string strConnString = "Server=localhost;User Id=root; Password=admin25;charset=tis620; Database=db_claim; Pooling=false";  //Test
 
         public ClaimConnection()
         {

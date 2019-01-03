@@ -13,6 +13,18 @@ namespace ClaimProject
         ClaimFunction function = new ClaimFunction();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Response.Charset = "UTF-8";
+
+            if (Request.Cookies["Login"] != null)
+            {
+                Session.Add("User", Request.Cookies["Login"]["User"]);
+                Session.Add("UserName", function.GetSelectValue("tbl_user","username = '"+ Request.Cookies["Login"]["User"] + "'","name"));
+                Session.Add("UserPrivilegeId", function.GetSelectValue("tbl_user", "username = '" + Request.Cookies["Login"]["User"] + "'", "level"));
+                Session.Add("UserPrivilege", function.GetLevel(int.Parse(Session["UserPrivilegeId"].ToString())));
+                Session.Add("UserCpoint", Request.Cookies["Login"]["UserCpoint"]);
+                Session.Timeout = 60 * 24;
+            }
+
             if (Session["User"] == null)
             {
                 Response.Redirect("/Login");
@@ -20,24 +32,23 @@ namespace ClaimProject
             else
             {
                 lbUser.Text = "ยินดีต้อนรับ : " + Session["UserName"].ToString() + " : " + Session["UserPrivilege"] + " " + function.GetSelectValue("tbl_cpoint", "cpoint_id='" + Session["UserCpoint"].ToString() + "'", "cpoint_name");
-                if (Session["UserPrivilegeId"].ToString() == "0" || Session["UserPrivilegeId"].ToString() == "1")
+                if (function.CheckLevel("Techno", Session["UserPrivilegeId"].ToString()))
                 {
                     nav3.Visible = true;
                     nav4.Visible = true;
                     nav5.Visible = true;
-                    nav6.Visible = true;
                 }
                 else
                 {
                     nav3.Visible = false;
                     nav4.Visible = false;
                     nav5.Visible = false;
-                    nav6.Visible = false;
                 }
 
-                if (Session["UserCpoint"].ToString() != "0")
+                if (!function.CheckLevel("Department", Session["UserPrivilegeId"].ToString()))
                 {
                     nav0.Visible = false;
+                    nav6.Visible = false;
                 }
             }
         }
@@ -48,6 +59,7 @@ namespace ClaimProject
             Session.Clear();
             Session.Contents.RemoveAll();
             Session.RemoveAll();
+            Response.Cookies["Login"].Expires = DateTime.Now.AddDays(-1);
             Response.Redirect("/");
         }
 

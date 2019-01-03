@@ -2218,7 +2218,7 @@ pre {
         border: 0;
     }
 
-.form-control {
+/*.form-control {
     display: block;
     width: 100%;
     padding: 0.4375rem 0;
@@ -2272,7 +2272,7 @@ pre {
     }
 
 select.form-control:not([size]):not([multiple]) {
-    /*height: calc(2.4375rem + 2px); */
+    height: calc(2.4375rem + 2px); 
 }
 
 select .form-control:focus::-ms-value {
@@ -2285,7 +2285,7 @@ select .form-control:focus::-ms-value {
     display: block;
     width: 100%;
 }
-
+*/
 .col-form-label {
     padding-top: calc(0.4375rem + 1px);
     padding-bottom: calc(0.4375rem + 1px);
@@ -2308,7 +2308,7 @@ select .form-control:focus::-ms-value {
     line-height: 1.5;
 }
 
-.form-control-plaintext {
+/*.form-control-plaintext {
     display: block;
     width: 100%;
     padding-top: 0.4375rem;
@@ -2370,7 +2370,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 .input-group-lg > .input-group-append > select.btn:not([size]):not([multiple]) {
     height: calc(4.125rem + 2px);
 }
-
+*/
 .form-group {
     margin-bottom: 1rem;
 }
@@ -2449,7 +2449,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
     background-color: rgba(76, 175, 80, 0.8);
     border-radius: .2rem;
 }
-
+/*
 .was-validated .form-control:valid, .form-control.is-valid, .was-validated
 .custom-select:valid,
 .custom-select.is-valid {
@@ -2473,7 +2473,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
     .custom-select.is-valid ~ .valid-tooltip {
         display: block;
     }
-
+    */
 .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
     color: #4caf50;
 }
@@ -2546,7 +2546,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
     background-color: rgba(244, 67, 54, 0.8);
     border-radius: .2rem;
 }
-
+/*
 .was-validated .form-control:invalid, .form-control.is-invalid, .was-validated
 .custom-select:invalid,
 .custom-select.is-invalid {
@@ -2570,7 +2570,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
     .custom-select.is-invalid ~ .invalid-tooltip {
         display: block;
     }
-
+    */
 .was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {
     color: #f44336;
 }
@@ -2646,7 +2646,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
         align-items: center;
         margin-bottom: 0;
     }
-
+    /*
     .form-inline .form-control {
         display: inline-block;
         width: auto;
@@ -2655,7 +2655,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 
     .form-inline .form-control-plaintext {
         display: inline-block;
-    }
+    }*/
 
     .form-inline .input-group {
         width: auto;
@@ -3691,7 +3691,7 @@ tbody.collapse.show {
     align-items: stretch;
     width: 100%;
 }
-
+/*
     .input-group > .form-control,
     .input-group > .custom-select,
     .input-group > .custom-file {
@@ -3730,7 +3730,7 @@ tbody.collapse.show {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
         }
-
+    */
     .input-group > .custom-file {
         display: flex;
         align-items: center;
@@ -11203,7 +11203,7 @@ form {
     .navbar form .btn {
         margin-bottom: 0;
     }
-
+    /*
 .form-control {
     background: no-repeat center bottom, center calc(100% - 1px);
     background-size: 0 100%, 100% 100%;
@@ -12911,7 +12911,7 @@ label {
     left: 0;
     /*font-size: 0.6875rem;*/
 }
-
+    /*
 .bmd-label-static {
     top: 0.35rem;
     left: 0;
@@ -13047,7 +13047,7 @@ fieldset[disabled] .form-group .form-control {
     border-bottom: 1px dotted #d2d2d2;
     background-repeat: no-repeat;
 }
-
+*/
 .input-group .input-group-text {
     display: flex;
     justify-content: center;
@@ -16123,8 +16123,8 @@ a {
 label {
     /*font-size: 14px;*/
     line-height: 1.42857;
-    color: #AAAAAA;
-    font-weight: 400;
+    color: #670000;
+    font-weight: bold;
 }
 
 /*           Animations              */

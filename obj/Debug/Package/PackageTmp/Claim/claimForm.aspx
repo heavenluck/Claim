@@ -14,13 +14,56 @@
         </div>
         <div class="card-body table-responsive table-sm">
             <div class="row">
-                <div class="col-md-3">
-                    <div class="form-group bmd-form-group">
-                        <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
+                <div class="col-md-2 text-right">
+                    <asp:Label ID="Label1" runat="server" Text="ปีงบประมาณ : "></asp:Label>
+                </div>
+                <div class="col-md-2">
+                    <asp:DropDownList ID="txtSearchYear" runat="server" CssClass="form-control">
+                        <asp:ListItem>2562</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="col-md-2 text-right">
+                    <asp:Label ID="Label2" runat="server" Text="เลขที่ออกหนังสือเจ้าหน้าที่คอม : "></asp:Label>
                 </div>
                 <div class="col-md-1">
-                    <asp:LinkButton ID="btnSearch" runat="server" CssClass="btn btn-dark btn-sm fa" Font-Size="Medium" OnClick="btnSearch_Click">&#xf002; ค้นหา</asp:LinkButton>
+                    <asp:TextBox ID="txtSearchComNumber" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-md-1 text-right">
+                    <asp:Label ID="Label3" runat="server" Text="ชื่อเรื่อง : "></asp:Label>
+                </div>
+                <div class="col-md-3">
+                    <asp:TextBox ID="txtSearchComTitle" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    <asp:Label ID="Label6" runat="server" Text="ด่านฯ : "></asp:Label>
+                </div>
+                <div class="col-md-2">
+                    <asp:DropDownList ID="txtSearchCpoint" runat="server" CssClass="form-control">
+                    </asp:DropDownList>
+                </div>
+                <div class="col-md-1 text-right">
+                    <asp:Label ID="Label4" runat="server" Text="วันที่เกิดเหตุ : "></asp:Label>
+                </div>
+                <div class="col-md-2">
+                    <asp:TextBox ID="txtSearchDate" runat="server" CssClass="form-control" ToolTip="รูปแบบ เช่น 01-11-2562"></asp:TextBox>
+                </div>
+                <div class="col-md-2 text-right">
+                    <asp:Label ID="Label5" runat="server" Text="สถานะ : "></asp:Label>
+                </div>
+                <div class="col-md-2">
+                    <asp:DropDownList ID="txtSearchStatus" runat="server" CssClass="form-control">
+                    </asp:DropDownList>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md text-center">
+                    <asp:LinkButton ID="btnSearch" runat="server" CssClass="btn btn-dark fa" Font-Size="Medium" OnClick="btnSearch_Click">&#xf002; ค้นหา</asp:LinkButton>
                 </div>
             </div>
             <hr />
@@ -103,18 +146,18 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="font-size: medium;">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group bmd-form-group">
                                 <label class="bmd-label-floating">เรื่อง</label>
-                                <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control form-control-sm" />
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group bmd-form-group">
                                 <label class="bmd-label-floating">เลขที่เอกสาร</label>
-                                <asp:TextBox ID="txtDocNum" runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="txtDocNum" runat="server" CssClass="form-control form-control-sm" />
                             </div>
                         </div>
                     </div>
@@ -122,13 +165,13 @@
                         <div class="col-md-6">
                             <div class="form-group bmd-form-group">
                                 <label class="bmd-label-floating">เรียน เช่น ผจท. ผ่าน หจ.จท.1 </label>
-                                <asp:TextBox ID="txtNoteTo" runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="txtNoteTo" runat="server" CssClass="form-control form-control-sm" />
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group bmd-form-group">
                                 <label class="bmd-label-floating">ลงวันที่</label>
-                                <asp:TextBox ID="txtDate" runat="server" CssClass="form-control datepicker" />
+                                <asp:TextBox ID="txtDate" runat="server" CssClass="form-control datepicker form-control-sm" />
                             </div>
                         </div>
                     </div>
@@ -138,7 +181,7 @@
                             1. สำเนารายงานประจำวันเกี่ยวกับคดี
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo1" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo1" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -149,7 +192,7 @@
                             2. สำเนาบันทึกการเปรียบเที่ยบปรับ
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo2" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo2" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -160,7 +203,7 @@
                             3. สำเนาใบเสร็จค่าปรับ
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo3" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo3" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -171,7 +214,7 @@
                             4. บันทึกข้อมูลการเกิดอุบัติเหตุถเบื้องต้นสำหรับการแจ้งความ
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo4" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo4" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -182,7 +225,7 @@
                             5. รายงานอุบัติเหตุบนทางหลวง (ส.3-02) จำนวน 
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo5" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo5" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -193,7 +236,7 @@
                             6. รายละเอียดเกี่ยวกับผู้ประสบอุบัติเหตุและยานพาหนะ
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo6" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo6" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -204,7 +247,7 @@
                             7. ข้อมูลเบื้องต้นจากการสอบปากคำผู้เกี่ยวข้อง สป.11 จำนวน
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo7" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo7" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -215,7 +258,7 @@
                             8. หนังสือยอมความรับผิด
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo8" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo8" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -226,7 +269,7 @@
                             9. สำเนาบัตรประจำตัวประชาชน
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo9" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo9" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -237,7 +280,7 @@
                             10. สำเนาใบอนุญาตขับรถ
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo10" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo10" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -248,7 +291,7 @@
                             11. สำเนาใบรับรองความเสียหายต่อทรัพย์สิน (ใบเคลมประกัน)
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo11" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo11" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -259,7 +302,7 @@
                             12. บันทึกข้อความรายงานของ พ.ควบคุมระบบ และรองผจด.ประจำผลัด
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo12" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo12" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -270,19 +313,18 @@
                             13. รูปภาพประกอบ
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo13" runat="server" CssClass="form-control text-center" />
+                            <asp:TextBox ID="txtNo13" runat="server" CssClass="form-control text-center form-control-sm" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md text-center">
-                        <asp:LinkButton ID="btnSavePrint" runat="server" Font-Size="20px" CssClass="btn btn-success btn-sm" OnClick="btnSavePrint_Click">พิมพ์</asp:LinkButton>
+                    <div class="row">
+                        <div class="col-md text-center">
+                            <asp:LinkButton ID="btnSavePrint" runat="server" Font-Size="20px" CssClass="btn btn-success btn-sm" OnClick="btnSavePrint_Click">พิมพ์</asp:LinkButton>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 

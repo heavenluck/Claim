@@ -14,6 +14,7 @@ namespace ClaimProject.Report
         {
             if (!this.IsPostBack)
             {
+                
             }
         }
     }

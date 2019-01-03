@@ -1,6 +1,8 @@
 ﻿using ClaimProject.Config;
 using MySql.Data.MySqlClient;
 using System;
+using System.Net;
+using System.Web;
 
 namespace ClaimProject
 {
@@ -9,7 +11,11 @@ namespace ClaimProject
         ClaimFunction function = new ClaimFunction();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!this.IsPostBack)
+            {
+                string sql = "SELECT * FROM tbl_cpoint ORDER BY cpoint_id";
+                function.getListItem(txtCpoint, sql, "cpoint_name", "cpoint_id");
+            }
         }
 
         private void MsgBox(string message)
@@ -38,14 +44,32 @@ namespace ClaimProject
                 {
                     if (!rs.IsDBNull(0))
                     {
+                        string cpoint = "";
+                        if (rs.GetString("user_cpoint") == "0")
+                        {
+                            cpoint = "0";
+                        }
+                        else
+                        {
+                            cpoint = txtCpoint.SelectedValue;
+                        }
                         // Storee Session
                         Session.Add("User", txtUser.Text);
                         Session.Add("UserName", rs.GetString("name"));
                         Session.Add("UserPrivilegeId", rs.GetString("level"));
                         Session.Add("UserPrivilege", function.GetLevel(int.Parse(rs.GetString("level"))));
-                        Session.Add("UserCpoint",rs.GetString("user_cpoint"));
-                        Session.Timeout = 60*24;
+                        Session.Add("UserCpoint", cpoint);
+                        Session.Timeout = 60 * 24;
 
+                        //Response.Charset = "UTF-8";
+                        HttpCookie newCookie = new HttpCookie("Login");
+                        newCookie["User"] = txtUser.Text;
+                        newCookie["UserName"] = rs.GetString("name");
+                        newCookie["UserPrivilegeId"] = rs.GetString("level");
+                        newCookie["UserPrivilege"] = function.GetLevel(int.Parse(rs.GetString("level")));
+                        newCookie["UserCpoint"] = cpoint;
+                        newCookie.Expires = DateTime.Now.AddDays(1);
+                        Response.Cookies.Add(newCookie);
                         //Page.ClientScript.RegisterStartupScript(Page.GetType(), "Message Box", "<script language = 'javascript'>alert('dd')</script>");
                         Response.Redirect("/");
                     }
@@ -70,7 +94,34 @@ namespace ClaimProject
             {
                 msgBox.Text = "";
             }
-           
+
+        }
+
+        protected void linkDownload_Click(object sender, EventArgs e)
+        {
+            DownLoad("/Claim/Upload/chrome_installer.exe");
+        }
+
+        public void DownLoad(string FName)
+        {
+            try
+            {
+                string strURL = FName;
+                WebClient req = new WebClient();
+                HttpResponse response = HttpContext.Current.Response;
+                response.Clear();
+                response.ClearContent();
+                response.ClearHeaders();
+                response.Buffer = true;
+                response.AddHeader("Content-Disposition", "attachment;filename=\"chrome_installer.exe\"");
+                byte[] data = req.DownloadData(Server.MapPath(strURL));
+                response.BinaryWrite(data);
+                response.End();
+            }
+            catch
+            {
+
+            }
         }
     }
 }

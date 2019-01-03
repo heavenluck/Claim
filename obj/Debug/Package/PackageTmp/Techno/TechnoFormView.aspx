@@ -10,9 +10,7 @@
                 <div class="card-body table-responsive table-sm">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="form-group bmd-form-group">
-                                <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control"></asp:TextBox>
-                            </div>
+                            <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-md-1">
                             <asp:LinkButton ID="btnSearch" runat="server" CssClass="btn btn-dark btn-sm fa" Font-Size="Medium" OnClick="btnSearch_Click">&#xf002; ค้นหา</asp:LinkButton>
@@ -39,7 +37,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="ชื่อเรื่อง">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lbEquipment" runat="server"  CssClass="links-horizontal" OnCommand="btnChangeStatus_Command"></asp:LinkButton>
+                                    <asp:LinkButton ID="lbEquipment" runat="server" CssClass="links-horizontal" OnCommand="btnChangeStatus_Command"></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="วันที่เกิดอุบัติเหตุ">

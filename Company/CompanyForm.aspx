@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-3">
             <br />
-            <asp:Button ID="btnCompanyAdd" runat="server" Text="&#xf067; เพิ่ม" Font-Size="Medium" CssClass="btn btn-success btn-sm align-items-end fa" OnClick="btnCompanyAdd_Click" />
+            <asp:Button ID="btnCompanyAdd" runat="server" Text="&#xf067; เพิ่ม" Font-Size="Medium" CssClass="btn btn-success btn-sm align-items-end fa" OnClick="btnCompanyAdd_Click" OnClientClick="return CompareConfirm('ยืนยันเพิ่มบริษัท ใช่หรือไม่');" />
         </div>
     </div>
     <hr />
@@ -63,4 +63,18 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
+        <script type="text/javascript">
+        function CompareConfirm(msg) {
+            var str1 = "1";
+            var str2 = "2";
+
+            if (str1 === str2) {
+                // your logic here
+                return false;
+            } else {
+                // your logic here
+                return confirm(msg);
+            }
+        }
+    </script>
 </asp:Content>

@@ -29,10 +29,6 @@
             สิทธ์การใช้งาน
             <asp:DropDownList ID="txtLevel" runat="server" CssClass="form-control"></asp:DropDownList>
         </div>
-        <div class="col-md-2">
-            รหัสด่านฯ ที่ใช้งาน
-            <asp:TextBox ID="txtCodeCpoint" runat="server" CssClass="form-control" MaxLength="3"></asp:TextBox>
-        </div>
         <div class="col-md-3">
             <br />
             <asp:Button ID="btnUserAdd" runat="server" Text="&#xf067; เพิ่ม" Font-Size="Medium" CssClass="btn btn-success btn-sm align-items-end fa" OnClick="btnUserAdd_Click" />
@@ -94,14 +90,6 @@
                                     </ItemTemplate>
                                     <EditItemTemplate>
                                         <asp:DropDownList ID="txtEPrivilege" runat="server" CssClass="form-control"></asp:DropDownList>
-                                    </EditItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="รหัสด่านฯ">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbCpoint" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.user_cpoint") %>'></asp:Label>
-                                    </ItemTemplate>
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="txtECpoint" size="3" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.user_cpoint") %>' CssClass="form-control"></asp:TextBox>
                                     </EditItemTemplate>
                                 </asp:TemplateField>
                                 <asp:CommandField ShowEditButton="True" CancelText="ยกเลิก" EditText="&#xf040; แก้ไข" UpdateText="แก้ไข" HeaderText="ปรับปรุง" ControlStyle-Font-Size="Small" ControlStyle-CssClass="btn btn-outline-warning btn-sm fa" />

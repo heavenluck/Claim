@@ -331,6 +331,9 @@
                     <div class="row text-center">
                         <div class="col-md"></div>
                         <div class="col-md-2">
+                            <asp:Button ID="btns0" runat="server" CssClass="btn btn-danger" OnClick="btns0_Click" Text="ลบข้อมูล" OnClientClick="return CompareConfirm('ยืนยัน คุณต้องการลบข้อมูล ใช่หรือไม่')"/>
+                        </div>
+                        <div class="col-md-2">
                             <asp:Button ID="btns1" runat="server" CssClass="btn btn-warning" OnClick="btns1_Click" Text="ขอใบเสนอราคา" />
                         </div>
                         <div class="col-md-2">
@@ -345,6 +348,9 @@
                         <div class="col-md"></div>
                     </div>
                 </ContentTemplate>
+                <Triggers>
+                    <asp:PostBackTrigger ControlID="btns0" />
+                </Triggers>
             </asp:UpdatePanel>
         </div>
     </div>
@@ -362,13 +368,13 @@
                             <div class="row">
                                 <div class="col-md-3 text-right">ชื่อบริษัท : </div>
                                 <div class="col-md">
-                                    <asp:DropDownList ID="txtCompany" runat="server" CssClass="form-control custom-control"></asp:DropDownList>
+                                    <asp:DropDownList ID="txtCompany" runat="server" CssClass="form-control custom-control col-md-6"></asp:DropDownList>
                                 </div>
-                            </div>
+                            </div><br />
                             <div class="row">
                                 <div class="col-md-3 text-right">เลขที่หนังสือ : </div>
                                 <div class="col-md">
-                                    <asp:TextBox ID="txtNoteNumber" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtNoteNumber" runat="server" CssClass="form-control col-md-2"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="row">

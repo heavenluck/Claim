@@ -379,3 +379,10 @@ E:\อาร์ม\Project Code\ClaimProject\ClaimProject\obj\Debug\Interop.Crys
 E:\อาร์ม\Project Code\ClaimProject\ClaimProject\obj\Debug\Interop.CrystalReportViewerExportLib.dll
 E:\อาร์ม\Project Code\ClaimProject\ClaimProject\obj\Debug\Interop.CrystalReportViewerWebReportSourceLib.dll
 E:\อาร์ม\Project Code\ClaimProject\ClaimProject\obj\Debug\ClaimProject.csproj.ResolveComReference.cache
+E:\Code Project\ClaimProject\ClaimProject\obj\Debug\Interop.CrystalActiveXReportViewerLib13.dll
+E:\Code Project\ClaimProject\ClaimProject\obj\Debug\Interop.CrystalAnalysisCommLayerLib.dll
+E:\Code Project\ClaimProject\ClaimProject\obj\Debug\Interop.CrystalAnalysisCommonControlsLib.dll
+E:\Code Project\ClaimProject\ClaimProject\obj\Debug\Interop.CrystalReportsCommonObjectModelLib.dll
+E:\Code Project\ClaimProject\ClaimProject\obj\Debug\Interop.CrystalReportViewerExportLib.dll
+E:\Code Project\ClaimProject\ClaimProject\obj\Debug\Interop.CrystalReportViewerWebReportSourceLib.dll
+E:\Code Project\ClaimProject\ClaimProject\obj\Debug\ClaimProject.csproj.ResolveComReference.cache

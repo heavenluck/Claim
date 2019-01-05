@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="E:\อาร์ม\Project Code\ClaimProject\ClaimProject\obj\Debug\Package\PackageTmp" />
-  <setAcl path="E:\อาร์ม\Project Code\ClaimProject\ClaimProject\obj\Debug\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="E:\อาร์ม\Project Code\ClaimProject\ClaimProject\obj\Debug\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <IisApp path="E:\Code Project\ClaimProject\ClaimProject\obj\Debug\Package\PackageTmp" />
+  <setAcl path="E:\Code Project\ClaimProject\ClaimProject\obj\Debug\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="E:\Code Project\ClaimProject\ClaimProject\obj\Debug\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
 </sitemanifest>

@@ -22,6 +22,24 @@ namespace ClaimProject.Device {
         protected global::System.Web.UI.WebControls.TextBox txtDeviceName;
         
         /// <summary>
+        /// txtGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList txtGroup;
+        
+        /// <summary>
+        /// txtSchedule control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSchedule;
+        
+        /// <summary>
         /// btnDeviceAdd control.
         /// </summary>
         /// <remarks>

@@ -253,6 +253,7 @@
     <Content Include="Claim\claimDetailForm.aspx" />
     <Content Include="Claim\claimForm.aspx" />
     <Content Include="Claim\Upload\chrome_installer.exe" />
+    <Content Include="CM\CMDetailForm.aspx" />
     <Content Include="Company\CompanyForm.aspx" />
     <Content Include="Config\brandCar.txt" />
     <Content Include="Config\ListDocTechno.txt" />
@@ -268,11 +269,17 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\brands.css" />
+    <Content Include="Content\brands.min.css" />
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\demo.css" />
     <Content Include="Content\demo.js" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fontawesome-all.css" />
+    <Content Include="Content\fontawesome-all.min.css" />
+    <Content Include="Content\fontawesome.css" />
+    <Content Include="Content\fontawesome.min.css" />
     <Content Include="Content\fonts\octicons.svg" />
     <Content Include="Content\Images\01254154215415.jpg" />
     <Content Include="Content\Images\add.gif" />
@@ -353,8 +360,14 @@
     <Content Include="Content\material-dashboard.css" />
     <Content Include="Content\material-Icons.css" />
     <Content Include="Content\octicons.css" />
+    <Content Include="Content\regular.css" />
+    <Content Include="Content\regular.min.css" />
     <Content Include="Content\signin.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\solid.css" />
+    <Content Include="Content\solid.min.css" />
+    <Content Include="Content\svg-with-js.css" />
+    <Content Include="Content\svg-with-js.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -396,6 +409,11 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\v4-shims.css" />
+    <Content Include="Content\v4-shims.min.css" />
+    <Content Include="Content\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\webfonts\fa-solid-900.svg" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl.cab" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_cs.cab" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_da.cab" />
@@ -963,6 +981,7 @@
     <Content Include="crystalreportviewers13\urlreporting\appletviewer.js" />
     <Content Include="Default.aspx" />
     <Content Include="Device\DeviceForm.aspx" />
+    <Content Include="Device\GroupDeviceForm.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -1011,6 +1030,36 @@
     <Content Include="fonts\THSarabunIT๙ BoldItalic.ttf" />
     <Content Include="fonts\THSarabunIT๙ Italic.ttf" />
     <Content Include="fonts\THSarabunIT๙.ttf" />
+    <Content Include="Content\webfonts\fa-solid-900.woff2" />
+    <Content Include="Content\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\fontawesome\_variables.less" />
+    <Content Include="Content\fontawesome\_stacked.less" />
+    <Content Include="Content\fontawesome\_shims.less" />
+    <Content Include="Content\fontawesome\_screen-reader.less" />
+    <Content Include="Content\fontawesome\_rotated-flipped.less" />
+    <Content Include="Content\fontawesome\_mixins.less" />
+    <Content Include="Content\fontawesome\_list.less" />
+    <Content Include="Content\fontawesome\_larger.less" />
+    <Content Include="Content\fontawesome\_icons.less" />
+    <Content Include="Content\fontawesome\_fixed-width.less" />
+    <Content Include="Content\fontawesome\_core.less" />
+    <Content Include="Content\fontawesome\_bordered-pulled.less" />
+    <Content Include="Content\fontawesome\_animated.less" />
+    <Content Include="Content\fontawesome\v4-shims.less" />
+    <Content Include="Content\fontawesome\solid.less" />
+    <Content Include="Content\fontawesome\regular.less" />
+    <Content Include="Content\fontawesome\fontawesome.less" />
+    <Content Include="Content\fontawesome\brands.less" />
     <None Include="Model\DataSetClaim.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -1052,6 +1101,18 @@
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
     <Content Include="Scripts\ClaimProjectScript.js" />
+    <Content Include="Scripts\fontawesome\all.js" />
+    <Content Include="Scripts\fontawesome\all.min.js" />
+    <Content Include="Scripts\fontawesome\brands.js" />
+    <Content Include="Scripts\fontawesome\brands.min.js" />
+    <Content Include="Scripts\fontawesome\fontawesome.js" />
+    <Content Include="Scripts\fontawesome\fontawesome.min.js" />
+    <Content Include="Scripts\fontawesome\regular.js" />
+    <Content Include="Scripts\fontawesome\regular.min.js" />
+    <Content Include="Scripts\fontawesome\solid.js" />
+    <Content Include="Scripts\fontawesome\solid.min.js" />
+    <Content Include="Scripts\fontawesome\v4-shims.js" />
+    <Content Include="Scripts\fontawesome\v4-shims.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
@@ -1108,6 +1169,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="settingPage.aspx" />
     <Content Include="Site.Master" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -1147,6 +1209,21 @@
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
+    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="webfonts\fa-solid-900.woff" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.eot" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.woff" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.eot" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-brands-400.woff" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.eot" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -1190,6 +1267,13 @@
       <DependentUpon>reportImg.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CM\CMDetailForm.aspx.cs">
+      <DependentUpon>CMDetailForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CM\CMDetailForm.aspx.designer.cs">
+      <DependentUpon>CMDetailForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Company\CompanyForm.aspx.cs">
       <DependentUpon>CompanyForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1220,6 +1304,13 @@
     </Compile>
     <Compile Include="Device\DeviceForm.aspx.designer.cs">
       <DependentUpon>DeviceForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Device\GroupDeviceForm.aspx.cs">
+      <DependentUpon>GroupDeviceForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Device\GroupDeviceForm.aspx.designer.cs">
+      <DependentUpon>GroupDeviceForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1262,6 +1353,13 @@
     </Compile>
     <Compile Include="Report\reportView.aspx.designer.cs">
       <DependentUpon>reportView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="settingPage.aspx.cs">
+      <DependentUpon>settingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="settingPage.aspx.designer.cs">
+      <DependentUpon>settingPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

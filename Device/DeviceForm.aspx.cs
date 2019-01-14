@@ -23,6 +23,8 @@ namespace ClaimProject.Device
             if (!this.IsPostBack)
             {
                 BindData("");
+                function.getListItem(txtGroup, "SELECT * FROM tbl_drive_group WHERE driver_group_delete <> 1", "drive_group_name", "drive_group_id");
+                txtGroup.Items.Insert(0, new ListItem("เลือก", ""));
             }
         }
 
@@ -31,7 +33,7 @@ namespace ClaimProject.Device
             string sql = "";
             try
             {
-                sql = "SELECT * FROM tbl_device WHERE davice_delete <> 1 AND device_name Like '%"+key+"%' ORDER BY device_name ASC";
+                sql = "SELECT * FROM tbl_device d JOIN tbl_drive_group g ON d.davice_group = g.drive_group_id WHERE davice_delete <> 1 AND device_name LIKE '%" + key + "%' ORDER BY device_name ASC";
                 MySqlDataAdapter da = function.MySqlSelectDataSet(sql);
                 System.Data.DataSet ds = new System.Data.DataSet();
                 da.Fill(ds);
@@ -45,9 +47,19 @@ namespace ClaimProject.Device
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                DropDownList txtEDeviceGroup = (DropDownList)e.Row.FindControl("txtEDeviceGroup");
+                if ((txtEDeviceGroup != null))
+                {
+                    function.getListItem(txtEDeviceGroup, "SELECT * FROM tbl_drive_group WHERE driver_group_delete <> 1", "drive_group_name", "drive_group_id");
+                    txtEDeviceGroup.SelectedIndex = txtEDeviceGroup.Items.IndexOf(txtEDeviceGroup.Items.FindByValue((string)DataBinder.Eval(e.Row.DataItem, "drive_group_id").ToString()));
+                }
+            }
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
                 try
                 {
-                    ((LinkButton)e.Row.Cells[2].Controls[0]).OnClientClick = "return confirm('ต้องการลบข้อมูลใช่หรือไม่');";
+                    ((LinkButton)e.Row.Cells[4].Controls[0]).OnClientClick = "return confirm('ต้องการลบข้อมูลใช่หรือไม่');";
                 }
                 catch { }
             }
@@ -68,8 +80,10 @@ namespace ClaimProject.Device
         protected void DeviceGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             TextBox txtEDevice = (TextBox)DeviceGridView.Rows[e.RowIndex].FindControl("txtEDevice");
+            DropDownList txtEDeviceGroup = (DropDownList)DeviceGridView.Rows[e.RowIndex].FindControl("txtEDeviceGroup");
+            TextBox txtEDeviceSchedule = (TextBox)DeviceGridView.Rows[e.RowIndex].FindControl("txtEDeviceSchedule");
 
-            string sql = "UPDATE tbl_device SET device_name='" + txtEDevice.Text + "' WHERE device_id = '" + DeviceGridView.DataKeys[e.RowIndex].Value + "'";
+            string sql = "UPDATE tbl_device SET device_name='" + txtEDevice.Text + "',davice_group = '" + txtEDeviceGroup.SelectedValue + "',device_schedule_hour='" + txtEDeviceSchedule.Text.Trim() + "' WHERE device_id = '" + DeviceGridView.DataKeys[e.RowIndex].Value + "'";
             string script = "";
             if (function.MySqlQuery(sql))
             {
@@ -107,9 +121,9 @@ namespace ClaimProject.Device
 
         protected void btnDeviceAdd_Click(object sender, EventArgs e)
         {
-            if (txtDeviceName.Text != "")
+            if (txtDeviceName.Text != "" && txtGroup.SelectedValue != "" && txtSchedule.Text != "")
             {
-                string sql = "INSERT INTO tbl_device (device_name,davice_delete) VALUES ('" + txtDeviceName.Text.Trim() + "','0')";
+                string sql = "INSERT INTO tbl_device (device_name,davice_delete,davice_group,device_schedule_hour) VALUES ('" + txtDeviceName.Text.Trim() + "','0','" + txtGroup.SelectedValue + "','" + txtSchedule.Text.Trim() + "')";
                 string script = "";
                 if (function.MySqlQuery(sql))
                 {
@@ -127,7 +141,7 @@ namespace ClaimProject.Device
             }
             else
             {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('เพิ่มล้มเหลว < br /> -กรุณาใส่ชื่ออุปกรณ์')", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('เพิ่มล้มเหลว < br /> -กรุณาใส่ข้อมูลให้ครบถ้วน')", true);
             }
             ClearData();
         }

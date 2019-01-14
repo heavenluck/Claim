@@ -3,11 +3,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="form-row">
         <div class="col-md-3">
-            ชื่ออุปกรณ์ 
+            ชื่ออุปกรณ์ : 
             <asp:TextBox ID="txtDeviceName" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-md-3">
-            <br />
+            กลุ่ม : 
+            <asp:DropDownList ID="txtGroup" runat="server" CssClass="form-control"></asp:DropDownList>
+        </div>
+        <div class="col-md-3">
+            ระยะเวลาในการเข้าซ่อม/ชั่วโมง (CM) : 
+            <asp:TextBox ID="txtSchedule" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-3">
             <asp:Button ID="btnDeviceAdd" runat="server" Text="&#xf067; เพิ่ม" Font-Size="Medium" CssClass="btn btn-success btn-sm align-items-end fa" OnClick="btnDeviceAdd_Click" OnClientClick="return CompareConfirm('ยืนยันเพิ่มอุปกรณ์ ใช่หรือไม่');" />
         </div>
     </div>
@@ -47,6 +56,22 @@
                                     </ItemTemplate>
                                     <EditItemTemplate>
                                         <asp:TextBox ID="txtEDevice" size="20" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.device_name") %>' CssClass="form-control"></asp:TextBox>
+                                    </EditItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="กลุ่ม">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbDeviceGroup" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.drive_group_name") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <EditItemTemplate>
+                                        <asp:DropDownList ID="txtEDeviceGroup" runat="server" CssClass="form-control"></asp:DropDownList>
+                                    </EditItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="ระยะเวลาในการเข้าซ่อม/ชั่วโมง (CM)">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbDeviceSchedule" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.device_schedule_hour") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="txtEDeviceSchedule" size="3" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.device_schedule_hour") %>' CssClass="form-control"></asp:TextBox>
                                     </EditItemTemplate>
                                 </asp:TemplateField>
                                 <asp:CommandField ShowEditButton="True" CancelText="ยกเลิก" EditText="&#xf040; แก้ไข" UpdateText="แก้ไข" HeaderText="ปรับปรุง" ControlStyle-Font-Size="Small" ControlStyle-CssClass="btn btn-outline-warning btn-sm fa" />

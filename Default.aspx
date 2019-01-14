@@ -136,8 +136,10 @@
                     <asp:DropDownList ID="DropDownList1" runat="server">
                         <asp:ListItem Text="Toll:อุบัติเหตุ" Value="uQQdUNuFfBphgSugC3OUa1lSjmovi4XINOAe2VwIczo"></asp:ListItem>
                         <asp:ListItem Text="ทดสอบ" Value="g0Zinn2LGsXH7MqNl6LqRRAloneiupRMel3VaC3TVdJ"></asp:ListItem>
-                    </asp:DropDownList>
+                    </asp:DropDownList><br />
+                    ข้อความ 
                     <asp:TextBox ID="TextBox1" runat="server" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                    URL รูปภาพ <asp:TextBox ID="TextBox2" runat="server" Width="300px"></asp:TextBox>
                     <asp:LinkButton ID="Button1" runat="server" Text="ส่ง" CssClass="btn btn-success" OnClientClick="return CompareConfirm('ยืนยันการส่งข้อมูล');" OnClick="Button1_Click" />
                 </div>
             </div>

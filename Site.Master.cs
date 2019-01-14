@@ -35,14 +35,10 @@ namespace ClaimProject
                 if (function.CheckLevel("Techno", Session["UserPrivilegeId"].ToString()))
                 {
                     nav3.Visible = true;
-                    nav4.Visible = true;
-                    nav5.Visible = true;
                 }
                 else
                 {
                     nav3.Visible = false;
-                    nav4.Visible = false;
-                    nav5.Visible = false;
                 }
 
                 if (!function.CheckLevel("Department", Session["UserPrivilegeId"].ToString()))

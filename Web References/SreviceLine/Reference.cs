@@ -113,25 +113,31 @@ namespace ClaimProject.SreviceLine {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/MessageLine", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void MessageLine(string token, string msg) {
+        public void MessageLine(string token, string msg, string pictureUrl, int stickerPackageID, int stickerID) {
             this.Invoke("MessageLine", new object[] {
                         token,
-                        msg});
+                        msg,
+                        pictureUrl,
+                        stickerPackageID,
+                        stickerID});
         }
         
         /// <remarks/>
-        public void MessageLineAsync(string token, string msg) {
-            this.MessageLineAsync(token, msg, null);
+        public void MessageLineAsync(string token, string msg, string pictureUrl, int stickerPackageID, int stickerID) {
+            this.MessageLineAsync(token, msg, pictureUrl, stickerPackageID, stickerID, null);
         }
         
         /// <remarks/>
-        public void MessageLineAsync(string token, string msg, object userState) {
+        public void MessageLineAsync(string token, string msg, string pictureUrl, int stickerPackageID, int stickerID, object userState) {
             if ((this.MessageLineOperationCompleted == null)) {
                 this.MessageLineOperationCompleted = new System.Threading.SendOrPostCallback(this.OnMessageLineOperationCompleted);
             }
             this.InvokeAsync("MessageLine", new object[] {
                         token,
-                        msg}, this.MessageLineOperationCompleted, userState);
+                        msg,
+                        pictureUrl,
+                        stickerPackageID,
+                        stickerID}, this.MessageLineOperationCompleted, userState);
         }
         
         private void OnMessageLineOperationCompleted(object arg) {
@@ -143,25 +149,31 @@ namespace ClaimProject.SreviceLine {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/MessageToServer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void MessageToServer(string token, string msg) {
+        public void MessageToServer(string token, string msg, string pictureUrl, int stickerPackageID, int stickerID) {
             this.Invoke("MessageToServer", new object[] {
                         token,
-                        msg});
+                        msg,
+                        pictureUrl,
+                        stickerPackageID,
+                        stickerID});
         }
         
         /// <remarks/>
-        public void MessageToServerAsync(string token, string msg) {
-            this.MessageToServerAsync(token, msg, null);
+        public void MessageToServerAsync(string token, string msg, string pictureUrl, int stickerPackageID, int stickerID) {
+            this.MessageToServerAsync(token, msg, pictureUrl, stickerPackageID, stickerID, null);
         }
         
         /// <remarks/>
-        public void MessageToServerAsync(string token, string msg, object userState) {
+        public void MessageToServerAsync(string token, string msg, string pictureUrl, int stickerPackageID, int stickerID, object userState) {
             if ((this.MessageToServerOperationCompleted == null)) {
                 this.MessageToServerOperationCompleted = new System.Threading.SendOrPostCallback(this.OnMessageToServerOperationCompleted);
             }
             this.InvokeAsync("MessageToServer", new object[] {
                         token,
-                        msg}, this.MessageToServerOperationCompleted, userState);
+                        msg,
+                        pictureUrl,
+                        stickerPackageID,
+                        stickerID}, this.MessageToServerOperationCompleted, userState);
         }
         
         private void OnMessageToServerOperationCompleted(object arg) {

@@ -101,9 +101,10 @@ namespace ClaimProject
         {
             SreviceLine.WebService_Server serviceLine = new SreviceLine.WebService_Server();
             //serviceLine.GetData(5555, true);
-            serviceLine.MessageToServer(DropDownList1.SelectedValue, TextBox1.Text);
+            serviceLine.MessageToServer(DropDownList1.SelectedValue, TextBox1.Text,TextBox2.Text.Trim(), 1,430);
             //function.MessageLine(DropDownList1.SelectedValue, TextBox1.Text);
             TextBox1.Text = "";
+            TextBox2.Text = "";
         }
     }
 }

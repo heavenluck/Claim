@@ -164,7 +164,7 @@ namespace ClaimProject.Techno
             rs.Close();
             function.Close();
 
-            sql = "SELECT* FROM tbl_device_damaged dd JOIN tbl_device d ON d.device_id = dd.device_id WHERE dd.claim_id = '" + Session["codePK"].ToString() + "'";
+            sql = "SELECT* FROM tbl_device_damaged dd JOIN tbl_device d ON d.device_id = dd.device_id WHERE dd.claim_id = '" + Session["codePK"].ToString() + "' AND dd.device_damaged_delete = '0'";
             rs = function.MySqlSelect(sql);
             lbDevice.Text = "";
             i = 1;

@@ -263,7 +263,6 @@ E:\Code Project\ClaimProject\ClaimProject\bin\pt\Microsoft.ReportViewer.WinForms
 E:\Code Project\ClaimProject\ClaimProject\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
 E:\Code Project\ClaimProject\ClaimProject\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 E:\Code Project\ClaimProject\ClaimProject\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-E:\Code Project\ClaimProject\ClaimProject\obj\Debug\ClaimProject.csprojResolveAssemblyReference.cache
 E:\Code Project\ClaimProject\ClaimProject\obj\Debug\ClaimProject.csproj.CoreCompileInputs.cache
 E:\Code Project\ClaimProject\ClaimProject\obj\Debug\ClaimProject.csproj.CopyComplete
 E:\Code Project\ClaimProject\ClaimProject\obj\Debug\ClaimProject.dll
@@ -386,3 +385,4 @@ E:\Code Project\ClaimProject\ClaimProject\obj\Debug\Interop.CrystalReportsCommon
 E:\Code Project\ClaimProject\ClaimProject\obj\Debug\Interop.CrystalReportViewerExportLib.dll
 E:\Code Project\ClaimProject\ClaimProject\obj\Debug\Interop.CrystalReportViewerWebReportSourceLib.dll
 E:\Code Project\ClaimProject\ClaimProject\obj\Debug\ClaimProject.csproj.ResolveComReference.cache
+E:\Code Project\ClaimProject\ClaimProject\obj\Debug\ClaimProject.csprojAssemblyReference.cache

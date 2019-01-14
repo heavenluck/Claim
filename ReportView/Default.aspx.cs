@@ -238,8 +238,7 @@ namespace ClaimProject.ReportView
                                 + " FROM tbl_cpoint "
                                 + " LEFT JOIN tbl_claim ON claim_cpoint = cpoint_id "
                                 + " LEFT JOIN tbl_claim_com ON tbl_claim.claim_id = tbl_claim_com.claim_id "
-                                + " WHERE "+whereAreU+" AND cpoint_id = '" + rs.GetString("cpoint_id") + "' AND claim_delete = '0' "
-                                + " GROUP BY cpoint_name) Table_Claim ) AS 'รวม'"
+                                + " WHERE "+whereAreU+" AND cpoint_id = '" + rs.GetString("cpoint_id") + "' AND claim_delete = '0' GROUP BY cpoint_name ) Table_Claim ) AS 'รวม'"
 
 
                     + " FROM tbl_cpoint"
@@ -329,7 +328,7 @@ namespace ClaimProject.ReportView
             {
 
                 
-                int i = 0;
+               /* int i = 0;
                 //วนลูปทำคำสั่งโดยการเปลี่ยนตัวแปรตำสั่งตามเงื่อนไขดังต่อไปนี้
                 while (rs.Read()) //อ่านข้อมูลตารางที่มีชื่อข้อมูลตาราง
                 {
@@ -343,7 +342,7 @@ namespace ClaimProject.ReportView
                     {
                         sql_query += " UNION ";
                         sql_query_out += " UNION ";
-                    }
+                    }*/
                      sql_query += "SELECT tbl_device.device_name As 'ชื่ออุปกรณ์' "
 
                     + ", COUNT(CASE WHEN tbl_claim_com.claim_detail_cb_claim = 'EN01' OR tbl_claim_com.claim_detail_cb_claim = 'I01' THEN tbl_claim_com.claim_detail_cb_claim END) 'EN01'"
@@ -366,7 +365,7 @@ namespace ClaimProject.ReportView
                     + ", COUNT(CASE WHEN tbl_claim_com.claim_detail_cb_claim = 'EN18' OR tbl_claim_com.claim_detail_cb_claim = 'I18' THEN tbl_claim_com.claim_detail_cb_claim END) 'EN18'"
                     + ", COUNT(CASE WHEN tbl_claim_com.claim_detail_cb_claim = 'EN19' OR tbl_claim_com.claim_detail_cb_claim = 'I19' THEN tbl_claim_com.claim_detail_cb_claim END) 'EN19'"
                     + ", COUNT(CASE WHEN tbl_claim_com.claim_detail_cb_claim = 'EN20' OR tbl_claim_com.claim_detail_cb_claim = 'I20' THEN tbl_claim_com.claim_detail_cb_claim END) 'EN20'"
-                    + ", (SELECT(EN01 + EN02 + EN03 + EN04 + EN05 + EN06 + EN07 + EN08 + EN09 + EN10 + EN11 + EN12 + EN13 + EN14 + EN15 + EN16 + EN17 + EN18 + EN19 + EN20) AS Total  FROM  "
+                    /*+ ", (SELECT(EN01 + EN02 + EN03 + EN04 + EN05 + EN06 + EN07 + EN08 + EN09 + EN10 + EN11 + EN12 + EN13 + EN14 + EN15 + EN16 + EN17 + EN18 + EN19 + EN20) AS Total  FROM  "
                                                + " (SELECT tbl_device.device_name AS StationName "
                                              + ", COUNT(CASE WHEN tbl_claim_com.claim_detail_cb_claim = 'EN01' OR tbl_claim_com.claim_detail_cb_claim = 'I01' THEN tbl_claim_com.claim_detail_cb_claim END) 'EN01'"
                                              + ", COUNT(CASE WHEN tbl_claim_com.claim_detail_cb_claim = 'EN02' OR tbl_claim_com.claim_detail_cb_claim = 'I02' THEN tbl_claim_com.claim_detail_cb_claim END) 'EN02'"
@@ -393,15 +392,19 @@ namespace ClaimProject.ReportView
                                              + " JOIN tbl_claim_com ON tbl_claim_com.claim_id = tbl_claim.claim_id "
                                              + " JOIN tbl_device_damaged ON tbl_claim_com.claim_id = tbl_device_damaged.claim_id "
                                              + " JOIN tbl_device ON tbl_device_damaged.device_id = tbl_device.device_id "
-                                             + " WHERE "+whereAreU+" AND tbl_claim.claim_delete = '0' "
-                                             + " AND tbl_claim.claim_cpoint = '" + txtStation.SelectedValue + "') Table_Cliam) AS 'รวม' "
+                                             + " JOIN tbl_cpoint ON tbl_claim.claim_cpoint = tbl_cpoint.cpoint_id "
+                                             + " WHERE "+whereAreU+ " AND tbl_claim.claim_delete = '0' AND (SUBSTR(claim_detail_cb_claim,1,2)='EN' OR SUBSTR(claim_detail_cb_claim,1,1)='I') "
+                                             + " AND tbl_claim.claim_cpoint = '" + txtStation.SelectedValue + "'" 
+                                             + " GROUP BY tbl_device.device_name  ORDER BY tbl_device.device_name ) Table_Cliam) AS 'รวม' "*/
 
-                             + " FROM tbl_claim "
+                            + " FROM tbl_claim "
                             + " JOIN tbl_claim_com ON tbl_claim_com.claim_id = tbl_claim.claim_id "
                             + " JOIN tbl_device_damaged ON tbl_claim_com.claim_id = tbl_device_damaged.claim_id "
                             + " JOIN tbl_device ON tbl_device_damaged.device_id = tbl_device.device_id "
+                            + " JOIN tbl_cpoint ON tbl_claim.claim_cpoint = tbl_cpoint.cpoint_id "
                             + " WHERE "+whereAreU+" AND tbl_claim.claim_delete = '0' AND (SUBSTR(claim_detail_cb_claim,1,2)='EN' OR SUBSTR(claim_detail_cb_claim,1,1)='I') "
-                            + " AND tbl_claim.claim_cpoint = '" + txtStation.SelectedValue + "' ";
+                            + " AND tbl_claim.claim_cpoint = '" + txtStation.SelectedValue + "' " 
+                            + " GROUP BY tbl_device.device_name  ORDER BY tbl_device.device_name ";
 
 
                     sql_query_out += "SELECT tbl_device.device_name As 'ชื่ออุปกรณ์' "
@@ -426,7 +429,7 @@ namespace ClaimProject.ReportView
                      + ", COUNT(CASE WHEN tbl_claim_com.claim_detail_cb_claim = 'EX18' OR tbl_claim_com.claim_detail_cb_claim = 'O18' THEN tbl_claim_com.claim_detail_cb_claim END) 'EX18'"
                      + ", COUNT(CASE WHEN tbl_claim_com.claim_detail_cb_claim = 'EX19' OR tbl_claim_com.claim_detail_cb_claim = 'O19' THEN tbl_claim_com.claim_detail_cb_claim END) 'EX19'"
                      + ", COUNT(CASE WHEN tbl_claim_com.claim_detail_cb_claim = 'EX20' OR tbl_claim_com.claim_detail_cb_claim = 'O20' THEN tbl_claim_com.claim_detail_cb_claim END) 'EX20'"
-                     + ", (SELECT (EX01+EX02+EX03+EX04+EX05+EX06+EX07+EX08+EX09+EX10+EX11+EX12+EX13+EX14+EX15+EX16+EX17+EX18+EX19+EX20) AS Total  FROM "
+                    /* + ", (SELECT (EX01+EX02+EX03+EX04+EX05+EX06+EX07+EX08+EX09+EX10+EX11+EX12+EX13+EX14+EX15+EX16+EX17+EX18+EX19+EX20) AS Total  FROM "
                             + " (SELECT tbl_device.device_name AS StationName "
                             + ", COUNT(CASE WHEN tbl_claim_com.claim_detail_cb_claim = 'EX01' OR tbl_claim_com.claim_detail_cb_claim = 'O01' THEN tbl_claim_com.claim_detail_cb_claim END) 'EX01'"
                             + ", COUNT(CASE WHEN tbl_claim_com.claim_detail_cb_claim = 'EX02' OR tbl_claim_com.claim_detail_cb_claim = 'O02' THEN tbl_claim_com.claim_detail_cb_claim END) 'EX02'"
@@ -454,20 +457,24 @@ namespace ClaimProject.ReportView
                                              + " JOIN tbl_claim_com ON tbl_claim_com.claim_id = tbl_claim.claim_id "
                                              + " JOIN tbl_device_damaged ON tbl_claim_com.claim_id = tbl_device_damaged.claim_id "
                                              + " JOIN tbl_device ON tbl_device_damaged.device_id = tbl_device.device_id "
-                                             + " WHERE "+whereAreU+" AND tbl_claim.claim_delete = '0' "
-                                             + " AND tbl_claim.claim_cpoint = '" + txtStation.SelectedValue + "') Table_Cliam) AS 'รวม' "
+                                             + " JOIN tbl_cpoint ON tbl_claim.claim_cpoint = tbl_cpoint.cpoint_id "
+                                             + " WHERE "+whereAreU+ " AND tbl_claim.claim_delete = '0' AND (SUBSTR(claim_detail_cb_claim,1,2)='EX' OR SUBSTR(claim_detail_cb_claim,1,1)='O') "
+                                             + " AND tbl_claim.claim_cpoint = '" + txtStation.SelectedValue + "'" 
+                                             + " GROUP BY tbl_device.device_name  ORDER BY tbl_device.device_name) Table_Cliam) AS 'รวม' "*/
 
                              + " FROM tbl_claim "
                             + " JOIN tbl_claim_com ON tbl_claim_com.claim_id = tbl_claim.claim_id "
                             + " JOIN tbl_device_damaged ON tbl_claim_com.claim_id = tbl_device_damaged.claim_id "
                             + " JOIN tbl_device ON tbl_device_damaged.device_id = tbl_device.device_id "
+                            + " JOIN tbl_cpoint ON tbl_claim.claim_cpoint = tbl_cpoint.cpoint_id "
                             + " WHERE "+whereAreU+" AND tbl_claim.claim_delete = '0' AND (SUBSTR(claim_detail_cb_claim,1,2)='EX' OR SUBSTR(claim_detail_cb_claim,1,1)='O') "
-                            + " AND tbl_claim.claim_cpoint = '" + txtStation.SelectedValue + "' ";
+                            + " AND tbl_claim.claim_cpoint = '" + txtStation.SelectedValue + "' " 
+                            + " GROUP BY tbl_device.device_name  ORDER BY tbl_device.device_name ";
 
                     //rs.GetString("cpoint_id") เพราะwhile นี้ทำทีละเรคคอด
 
-                    i++;
-                }
+                /*    i++;
+                }*/
                 rs.Close();
                 function.Close();
                 string overall = "SELECT cpoint_name AS 'ด่านฯ' ,COUNT(claim_detail_cb_claim) AS Total "
@@ -567,15 +574,15 @@ namespace ClaimProject.ReportView
         protected void GridViewEn2_RowCreated(object sender, GridViewRowEventArgs e)
         {
             e.Row.Cells[0].Width = new Unit("140px");
-            e.Row.Cells[21].Font.Bold = true;
-
+            //e.Row.Cells[21].Font.Bold = true;
+            
         }
 
         protected void GridViewEx2_RowCreated(object sender, GridViewRowEventArgs e)
         {
             e.Row.Cells[0].Width = new Unit("140px");
 
-            e.Row.Cells[21].Font.Bold = true;
+           // e.Row.Cells[21].Font.Bold = true;
             
         }
     }

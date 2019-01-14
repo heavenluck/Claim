@@ -91,7 +91,7 @@ namespace ClaimProject.Config
                 conn.Close();
                 return da;
             }
-            catch (Exception e)
+            catch 
             {
                 conn.Close();
                 return null;

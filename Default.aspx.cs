@@ -21,7 +21,7 @@ namespace ClaimProject
             {
                 if (!function.CheckLevel("Department",Session["UserPrivilegeId"].ToString()))
                 {
-                    Response.Redirect("/Claim/claimForm");
+                    Response.Redirect("/Claim/DefaultClaim");
                 }
             }
 
@@ -74,12 +74,12 @@ namespace ClaimProject
 
         protected void btnDetailQute_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Techno/TechnoFormView?s=2&y=" + txtYear.SelectedValue);
+            Response.Redirect("/Techno/TechnoFormView?s=3&y=" + txtYear.SelectedValue);
         }
 
         protected void btnSendto_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Techno/TechnoFormView?s=3&y=" + txtYear.SelectedValue);
+            Response.Redirect("/Techno/TechnoFormView?s=2&y=" + txtYear.SelectedValue);
         }
 
         protected void btnWait_Click(object sender, EventArgs e)

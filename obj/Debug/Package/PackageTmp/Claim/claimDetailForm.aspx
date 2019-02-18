@@ -393,7 +393,6 @@
                         <div class="custom-file">
                             <label class="custom-file-label" for="customFile">เลือกไฟล์</label>
                             <asp:FileUpload ID="FileUploadDoc" runat="server" CssClass="custom-file-input" lang="en" />
-
                         </div>
                     </div>
                     <div class="col-md-1">
@@ -435,7 +434,7 @@
                 <div class="col-md text-center">
                     <asp:LinkButton ID="btnSaveReport" runat="server" Text="&#xf0c7; บันทึก" Font-Size="Large" CssClass="btn btn-info fa btn-sm" OnClick="btnSaveReport_Click"></asp:LinkButton>
                     <asp:LinkButton ID="btnDelete" runat="server" Text="&#xf014; ลบข้อมูล" Font-Size="Large" CssClass="btn btn-danger fa btn-sm" OnClick="btnDelete_Click"  OnClientClick="return CompareConfirm('ยืนยัน คุณต้องการลบข้อมูล ใช่หรือไม่')"/>
-                    <asp:LinkButton ID="btnTechno" runat="server" Text="ไปหน้าขอใบเสนอราคา" Font-Size="Large" CssClass="btn btn-warning fa btn-sm" OnClick="btnTechno_Click" />
+                    <asp:LinkButton ID="btnTechno" runat="server" Text="ส่งเรื่องเข้ากองฯ" Font-Size="Large" CssClass="btn btn-dark fa btn-sm" OnClick="btnTechno_Click" />
                     <br />
                     &nbsp;
                 </div>

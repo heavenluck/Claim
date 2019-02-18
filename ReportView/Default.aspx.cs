@@ -238,13 +238,13 @@ namespace ClaimProject.ReportView
                                 + " FROM tbl_cpoint "
                                 + " LEFT JOIN tbl_claim ON claim_cpoint = cpoint_id "
                                 + " LEFT JOIN tbl_claim_com ON tbl_claim.claim_id = tbl_claim_com.claim_id "
-                                + " WHERE "+whereAreU+" AND cpoint_id = '" + rs.GetString("cpoint_id") + "' AND claim_delete = '0' GROUP BY cpoint_name ) Table_Claim ) AS 'รวม'"
+                                + " WHERE "+whereAreU+" AND cpoint_id = '" + rs.GetString("cpoint_id") + "' AND claim_delete = '0' AND tbl_claim.claim_status != 6  GROUP BY cpoint_name ) Table_Claim ) AS 'รวม'"
 
 
                     + " FROM tbl_cpoint"
                     + " LEFT JOIN tbl_claim ON claim_cpoint=cpoint_id"
                     + " LEFT JOIN tbl_claim_com ON tbl_claim.claim_id=tbl_claim_com.claim_id"
-                    + " WHERE "+whereAreU+" AND cpoint_id='" + rs.GetString("cpoint_id") + "' AND claim_delete = '0' "
+                    + " WHERE "+whereAreU+" AND cpoint_id='" + rs.GetString("cpoint_id") + "' AND claim_delete = '0' AND tbl_claim.claim_status != 6 "
                     + " GROUP BY cpoint_name";
 
 
@@ -297,13 +297,13 @@ namespace ClaimProject.ReportView
                                 + " FROM tbl_cpoint "
                                 + " LEFT JOIN tbl_claim ON claim_cpoint = cpoint_id "
                                 + " LEFT JOIN tbl_claim_com ON tbl_claim.claim_id = tbl_claim_com.claim_id "
-                                + " WHERE "+whereAreU+" AND cpoint_id = '" + rs.GetString("cpoint_id") + "' AND claim_delete = '0' "
+                                + " WHERE "+whereAreU+" AND cpoint_id = '" + rs.GetString("cpoint_id") + "' AND claim_delete = '0' AND tbl_claim.claim_status != 6 "
                                 + " GROUP BY cpoint_name) Table_Claim) AS 'รวม' "
 
                     + " FROM tbl_cpoint"
                     + " LEFT JOIN tbl_claim ON claim_cpoint=cpoint_id"
                     + " LEFT JOIN tbl_claim_com ON tbl_claim.claim_id=tbl_claim_com.claim_id"
-                    + " WHERE "+whereAreU+" AND cpoint_id='" + rs.GetString("cpoint_id") + "' AND claim_delete = '0' "
+                    + " WHERE "+whereAreU+" AND cpoint_id='" + rs.GetString("cpoint_id") + "' AND claim_delete = '0' AND tbl_claim.claim_status != 6 "
                     + " GROUP BY cpoint_name";
 
 
@@ -317,7 +317,7 @@ namespace ClaimProject.ReportView
                                     +" FROM tbl_cpoint "
                                     +" LEFT JOIN tbl_claim ON claim_cpoint = cpoint_id "
                                     +" LEFT JOIN tbl_claim_com ON tbl_claim.claim_id = tbl_claim_com.claim_id "
-                                    +" WHERE "+whereAreU+" AND claim_delete = '0' GROUP BY cpoint_id   ";
+                                    +" WHERE "+whereAreU+ " AND claim_delete = '0' AND tbl_claim.claim_status != 6 GROUP BY cpoint_id   ";
 
                 bindAllClaim(overall, Budget,beginx ,endx);
                 bindDetail(sql_query, Budget,1,beginx,endx);
@@ -402,8 +402,8 @@ namespace ClaimProject.ReportView
                             + " JOIN tbl_device_damaged ON tbl_claim_com.claim_id = tbl_device_damaged.claim_id "
                             + " JOIN tbl_device ON tbl_device_damaged.device_id = tbl_device.device_id "
                             + " JOIN tbl_cpoint ON tbl_claim.claim_cpoint = tbl_cpoint.cpoint_id "
-                            + " WHERE "+whereAreU+" AND tbl_claim.claim_delete = '0' AND (SUBSTR(claim_detail_cb_claim,1,2)='EN' OR SUBSTR(claim_detail_cb_claim,1,1)='I') "
-                            + " AND tbl_claim.claim_cpoint = '" + txtStation.SelectedValue + "' " 
+                            + " WHERE "+whereAreU+ " AND tbl_claim.claim_delete = '0' AND tbl_claim.claim_status != 6 AND (SUBSTR(claim_detail_cb_claim,1,2)='EN' OR SUBSTR(claim_detail_cb_claim,1,1)='I') "
+                            + " AND tbl_claim.claim_cpoint = '" + txtStation.SelectedValue + "' AND tbl_device_damaged.device_damaged_delete = 0"
                             + " GROUP BY tbl_device.device_name  ORDER BY tbl_device.device_name ";
 
 
@@ -465,10 +465,10 @@ namespace ClaimProject.ReportView
                              + " FROM tbl_claim "
                             + " JOIN tbl_claim_com ON tbl_claim_com.claim_id = tbl_claim.claim_id "
                             + " JOIN tbl_device_damaged ON tbl_claim_com.claim_id = tbl_device_damaged.claim_id "
-                            + " JOIN tbl_device ON tbl_device_damaged.device_id = tbl_device.device_id "
+                            + " JOIN tbl_device ON tbl_device_damaged.device_id = tbl_device.device_id"
                             + " JOIN tbl_cpoint ON tbl_claim.claim_cpoint = tbl_cpoint.cpoint_id "
-                            + " WHERE "+whereAreU+" AND tbl_claim.claim_delete = '0' AND (SUBSTR(claim_detail_cb_claim,1,2)='EX' OR SUBSTR(claim_detail_cb_claim,1,1)='O') "
-                            + " AND tbl_claim.claim_cpoint = '" + txtStation.SelectedValue + "' " 
+                            + " WHERE "+whereAreU+ " AND tbl_claim.claim_delete = '0' AND tbl_claim.claim_status != 6 AND (SUBSTR(claim_detail_cb_claim,1,2)='EX' OR SUBSTR(claim_detail_cb_claim,1,1)='O') "
+                            + " AND tbl_claim.claim_cpoint = '" + txtStation.SelectedValue + "' AND tbl_device_damaged.device_damaged_delete = 0"
                             + " GROUP BY tbl_device.device_name  ORDER BY tbl_device.device_name ";
 
                     //rs.GetString("cpoint_id") เพราะwhile นี้ทำทีละเรคคอด
@@ -481,7 +481,7 @@ namespace ClaimProject.ReportView
                                     + " FROM tbl_cpoint "
                                     + " LEFT JOIN tbl_claim ON claim_cpoint = cpoint_id "
                                     + " LEFT JOIN tbl_claim_com ON tbl_claim.claim_id = tbl_claim_com.claim_id "
-                                    + " WHERE "+whereAreU+" AND cpoint_id='"+ txtStation.SelectedValue + "' AND claim_delete = '0'  ";
+                                    + " WHERE "+whereAreU+" AND cpoint_id='"+ txtStation.SelectedValue + "' AND claim_delete = '0' AND tbl_claim.claim_status != 6  ";
 
                 bindAllClaim(overall, Budget, beginx, endx);
                 bindDetail(sql_query, Budget,2,beginx,endx);

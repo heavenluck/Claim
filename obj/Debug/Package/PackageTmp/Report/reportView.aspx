@@ -22,17 +22,17 @@
 </head>
 <body style="font-family: 'THSarabun,THSarabunIT๙'">
     <form id="iframe" runat="server">
-        <div id="dvReport">
-            <asp:Button runat="server" ID="btnPrint" Text="พิมพ์" OnClick="btnPrint_Click" />
-            <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+        <asp:Panel id="dvReport" runat="server">
+            <!--<asp:Button runat="server" ID="btnPrint" Text="พิมพ์" OnClick="btnPrint_Click" />
+            <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>-->
             <CR:CrystalReportViewer ID="resultReportLeave" runat="server"
                 EnableParameterPrompt="False" 
-                ToolPanelView="None" GroupTreeStyle-ShowLines="False" HasCrystalLogo="False" HasToggleGroupTreeButton="False" PrintMode="ActiveX" />
-        </div>
+                ToolPanelView="None" GroupTreeStyle-ShowLines="False" HasCrystalLogo="False" HasToggleGroupTreeButton="False" PrintMode="Pdf" AutoDataBind="true" EnableDatabaseLogonPrompt="False" />
+        </asp:Panel>
     </form>
     <script type="text/javascript">
         function Print() {
-            var dvReport = document.getElementById("dvReport");
+            var dvReport = document.getElementById("<%=resultReportLeave.ClientID%>");
             var frame1 = dvReport.getElementsByTagName("iframe")[0];
             if (navigator.appName.indexOf("Internet Explorer") != -1 || navigator.appVersion.indexOf("Trident") != -1) {
                 frame1.name = frame1.id;

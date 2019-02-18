@@ -66,21 +66,15 @@
                             </a>
                         </li>
                         <li class="nav-item" runat="server" id="nav1">
-                            <a class="nav-link" href="/Claim/claimForm">
+                            <a class="nav-link" href="/Claim/DefaultClaim">
                                 <i class="fa fa-table" style="font-size: 22px;"></i>
                                 <p>งานอุบัติเหตุ</p>
                             </a>
                         </li>
                         <li class="nav-item" runat="server" id="Li2">
-                            <a class="nav-link" href="/CM/CMDetailForm">
+                            <a class="nav-link" href="/CM/DefaultCM">
                                 <i class="fas fa-tools" style="font-size: 22px;"></i>
-                                <p>งาน CM</p>
-                            </a>
-                        </li>
-                        <li class="nav-item" runat="server" id="Li3">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-magic" style="font-size: 22px;"></i>
-                                <p>งาน PM</p>
+                                <p>งาน MA</p>
                             </a>
                         </li>
                         <li class="nav-item" runat="server" id="nav2">
@@ -93,12 +87,6 @@
                             <a class="nav-link" href="/settingPage">
                                 <i class="fa fa-gear" style="font-size: 22px;"></i>
                                 <p>Setting/Admin</p>
-                            </a>
-                        </li>
-                        <li class="nav-item" runat="server" id="nav6">
-                            <a class="nav-link" href="/ReportView/">
-                                <i class="fa fa-pie-chart" style="font-size: 22px;"></i>
-                                <p>พิมพ์รายงาน</p>
                             </a>
                         </li>
                         <li class="nav-item" runat="server" id="Li1">

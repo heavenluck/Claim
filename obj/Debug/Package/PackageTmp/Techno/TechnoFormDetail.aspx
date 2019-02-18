@@ -131,7 +131,56 @@
             </div>
             <br />
             <hr />
-            <div runat="server" id="Div1">
+            <div runat="server" id="Div2">
+                <div class="row">
+                    <div class="col-md">
+                        <h3>ออกหนังสือส่งกองทางหลวงพิเศษระหว่างเมือง</h3>
+                    </div>
+                </div>
+                <asp:UpdatePanel runat="server">
+                    <ContentTemplate>
+                        <div class="row">
+                            <div class="col-md-3 text-right">เลขที่หนังสือ : </div>
+                            <div class="col-md-2">
+                                <asp:TextBox ID="txtNoteNumTo" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                            <div class="col-md-3 text-right">วันที่ : </div>
+                            <div class="col-md-2">
+                                <asp:TextBox ID="txtDateNoteto" runat="server" AutoPostBack="true" CssClass="form-control datepicker" OnTextChanged="txtDateNoteto_TextChanged"></asp:TextBox>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <div class="row">
+                    <div class="col-md-3 text-right">เรื่อง : </div>
+                    <div class="col-md">
+                        <asp:TextBox ID="txtNoteTitleTo" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-right">เรียน : </div>
+                    <div class="col-md">
+                        <asp:TextBox ID="txtNoteSendTo" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md">
+                        <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md text-center">
+                        <asp:Button ID="btnSaveNoteTo" CssClass="btn btn-info btn-sm" Font-Size="20px" runat="server" Text="บันทึก" OnClick="btnSaveNoteTo_Click" />
+                        <asp:Button ID="btnNoteTo" CssClass="btn btn-info btn-sm" Font-Size="20px" runat="server" Text="พิมพ์ตัวจริง" OnClick="btnNoteTo_Click" />
+                        <asp:Button ID="btnNoteToCpoy" CssClass="btn btn-info btn-sm" Font-Size="20px" runat="server" Text="พิมพ์สำเนา" OnClick="btnNoteToCpoy_Click" />
+                    </div>
+                </div>
+                <hr />
+            </div>
+           <div runat="server" id="Div1">
                 <div class="row">
                     <div class="col-md-3">
                         <h3>รายการใบเสนอราคา</h3>
@@ -197,57 +246,8 @@
                         </asp:GridView>
                     </div>
                 </div>
+               <hr />
             </div>
-            <br />
-            <div runat="server" id="Div2">
-                <div class="row">
-                    <div class="col-md">
-                        <h3>ออกหนังสือส่งกองทางหลวงพิเศษระหว่างเมือง</h3>
-                    </div>
-                </div>
-                <asp:UpdatePanel runat="server">
-                    <ContentTemplate>
-                        <div class="row">
-                            <div class="col-md-3 text-right">เลขที่หนังสือ : </div>
-                            <div class="col-md-2">
-                                <asp:TextBox ID="txtNoteNumTo" runat="server" CssClass="form-control"></asp:TextBox>
-                            </div>
-                            <div class="col-md-3 text-right">วันที่ : </div>
-                            <div class="col-md-2">
-                                <asp:TextBox ID="txtDateNoteto" runat="server" AutoPostBack="true" CssClass="form-control datepicker" OnTextChanged="txtDateNoteto_TextChanged"></asp:TextBox>
-                            </div>
-                        </div>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-                <div class="row">
-                    <div class="col-md-3 text-right">เรื่อง : </div>
-                    <div class="col-md">
-                        <asp:TextBox ID="txtNoteTitleTo" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 text-right">เรียน : </div>
-                    <div class="col-md">
-                        <asp:TextBox ID="txtNoteSendTo" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md">
-                        <asp:Panel ID="Panel1" runat="server"></asp:Panel>
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="col-md text-center">
-                        <asp:Button ID="btnSaveNoteTo" CssClass="btn btn-outline-info btn-sm" Font-Size="20px" runat="server" Text="บันทึก" OnClick="btnSaveNoteTo_Click" />
-                        <asp:Button ID="btnNoteTo" CssClass="btn btn-outline-info btn-sm" Font-Size="20px" runat="server" Text="พิมพ์ตัวจริง" OnClick="btnNoteTo_Click" />
-                        <asp:Button ID="btnNoteToCpoy" CssClass="btn btn-outline-info btn-sm" Font-Size="20px" runat="server" Text="พิมพ์สำเนา" OnClick="btnNoteToCpoy_Click" />
-                    </div>
-                </div>
-            </div>
-            <br />
             <div runat="server" id="Div3">
                 <div class="row">
                     <div class="col-md">
@@ -293,6 +293,7 @@
                         <asp:LinkButton ID="btnDownloadOrder" CssClass="btn btn-outline-info btn-sm" Font-Size="15px" runat="server" OnClick="btnDownloadOrder_Click">ดาวน์โหลด</asp:LinkButton>
                     </div>
                 </div>
+                <hr />
             </div>
             <div runat="server" id="Div4">
                 <div class="row">
@@ -331,13 +332,13 @@
                     <div class="row text-center">
                         <div class="col-md"></div>
                         <div class="col-md-2">
-                            <asp:Button ID="btns0" runat="server" CssClass="btn btn-danger" OnClick="btns0_Click" Text="ลบข้อมูล" OnClientClick="return CompareConfirm('ยืนยัน คุณต้องการลบข้อมูล ใช่หรือไม่')"/>
+                            <asp:Button ID="btns0" runat="server" CssClass="btn btn-danger" OnClick="btns0_Click" Text="ลบข้อมูล" OnClientClick="return CompareConfirm('ยืนยัน คุณต้องการลบข้อมูล ใช่หรือไม่')" />
                         </div>
                         <div class="col-md-2">
-                            <asp:Button ID="btns1" runat="server" CssClass="btn btn-warning" OnClick="btns1_Click" Text="ขอใบเสนอราคา" />
+                            <asp:Button ID="btns1" runat="server" CssClass="btn btn-dark" Text="ส่งเรื่องเข้ากองฯ" OnClick="btns2_Click" OnClientClick="return CompareConfirm('ยืนยันเปลี่ยนสถานะส่งเรื่องเข้ากองฯ ?');" />
                         </div>
                         <div class="col-md-2">
-                            <asp:Button ID="btns2" runat="server" CssClass="btn btn-dark" Text="ส่งเรื่องเข้ากองฯ" OnClick="btns2_Click" OnClientClick="return CompareConfirm('ยืนยันเปลี่ยนสถานะส่งเรื่องเข้ากองฯ ?');" />
+                            <asp:Button ID="btns2" runat="server" CssClass="btn btn-warning" OnClick="btns1_Click" Text="ขอใบเสนอราคา" />
                         </div>
                         <div class="col-md-2">
                             <asp:Button ID="btns3" runat="server" CssClass="btn btn-primary" Text="อยู่ระหว่างซ่อม" OnClick="btns3_Click" OnClientClick="return CompareConfirm('ยืนยันเปลี่ยนเป็นอยู่ระหว่างซ่อม ?');" />
@@ -370,7 +371,8 @@
                                 <div class="col-md">
                                     <asp:DropDownList ID="txtCompany" runat="server" CssClass="form-control custom-control col-md-6"></asp:DropDownList>
                                 </div>
-                            </div><br />
+                            </div>
+                            <br />
                             <div class="row">
                                 <div class="col-md-3 text-right">เลขที่หนังสือ : </div>
                                 <div class="col-md">
@@ -441,7 +443,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 text-right">วันที่รับใบเสนอะราคา : </div>
-                        <div class="col-md">
+                        <div class="col-md-3">
                             <asp:TextBox ID="txtDateRecive" runat="server" CssClass="form-control datepicker"></asp:TextBox>
                         </div>
                     </div>
@@ -488,6 +490,7 @@
                                     <asp:DropDownList ID="txtCompanyOrder" AutoPostBack="true" runat="server" CssClass="form-control custom-control" OnSelectedIndexChanged="txtCompanyOrder_SelectedIndexChanged"></asp:DropDownList>
                                 </div>
                             </div>
+                            <br />
                             <div class="row">
                                 <div class="col-md-3 text-right">ราคาจ้าง : </div>
                                 <div class="col-md-3">
@@ -497,6 +500,7 @@
                                     <asp:Label ID="Label3" runat="server" Text=" บาท"></asp:Label>
                                 </div>
                             </div>
+                            <br />
                         </ContentTemplate>
                     </asp:UpdatePanel>
                     <div class="row">
@@ -505,6 +509,7 @@
                             <asp:TextBox ID="txtDateOrder" runat="server" CssClass="datepicker form-control"></asp:TextBox>
                         </div>
                     </div>
+                    <br />
                     <div class="row">
                         <div class="col-md-4 text-right">กำหนดส่งงานภายใน : </div>
                         <div class="col-md-2">
@@ -514,6 +519,7 @@
                             <asp:Label ID="Label1" runat="server" Text=" วัน"></asp:Label>
                         </div>
                     </div>
+                    <br />
                     <div class="row">
                         <div class="col-md-3 text-right">แนบรูปภาพ : </div>
                         <div class="col-md-5">
@@ -523,6 +529,7 @@
                             </div>
                         </div>
                     </div>
+                    <br />
                     <div class="row">
                         <div class="col-md text-center">
                             <asp:Button ID="btnSaveOrder" runat="server" Font-Size="20px" CssClass="btn btn-warning btn-sm" Text="บันทึก" OnClick="btnSaveOrder_Click" />

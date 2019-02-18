@@ -20,6 +20,11 @@ namespace ClaimProject.Claim
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request["add"] == "true")
+            {
+                btnAddClaim_Click(null, null);
+            }
+
             if (!this.IsPostBack)
             {
                 string date = DateTime.Now.ToString("dd-MM") + "-" + (DateTime.Now.Year + 543);
@@ -42,8 +47,8 @@ namespace ClaimProject.Claim
                     {
                         sql = "SELECT * FROM tbl_cpoint WHERE cpoint_id = '" + Session["UserCpoint"].ToString() + "'";
                         function.getListItem(txtSearchCpoint, sql, "cpoint_name", "cpoint_id");
+                        btnSearch_Click(null,null);
                     }
-
                 }
                 else
                 {
@@ -482,12 +487,12 @@ namespace ClaimProject.Claim
                     doc_num = rs.GetString("claim_doc_num");
                     noteTo1 = rs.GetString("claim_doc_to");
                     listDoc += "เอกสารประกอบการพิจารณาแนบ ดังนี้";
-                    listDoc += "\r\n                      1. สำเนารายงานประจำวันเกี่ยวกับคดี จำนวน " + converNum(rs.GetString("claim_doc_no1")) + " ฉบับ";
-                    listDoc += "\r\n                      2. สำเนาบันทึกการเปรียบเที่ยบปรับ จำนวน " + converNum(rs.GetString("claim_doc_no2")) + " ฉบับ";
+                    listDoc += "\r\n                      1. บันทึกข้อความ " + converNum(rs.GetString("claim_doc_no1")) + " ฉบับ";
+                    listDoc += "\r\n                      2. สำเนาบันทึกการเปรียบเทียบปรับ จำนวน " + converNum(rs.GetString("claim_doc_no2")) + " ฉบับ";
                     listDoc += "\r\n                      3. สำเนาใบเสร็จค่าปรับ จำนวน " + converNum(rs.GetString("claim_doc_no3")) + " ฉบับ";
-                    listDoc += "\r\n                      4. บันทึกข้อมูลการเกิดอุบัติเหตุถเบื้องต้นสำหรับการแจ้งความ จำนวน " + converNum(rs.GetString("claim_doc_no4")) + " ฉบับ";
+                    listDoc += "\r\n                      4. บันทึกข้อมูลการเกิดอุบัติเหตุเบื้องต้นสำหรับการแจ้งความ จำนวน " + converNum(rs.GetString("claim_doc_no4")) + " ฉบับ";
                     listDoc += "\r\n                      5. รายงานอุบัติเหตุบนทางหลวง (ส.3-02) จำนวน " + converNum(rs.GetString("claim_doc_no5")) + " ฉบับ";
-                    listDoc += "\r\n                      6. รายละเอียดเกี่ยวกับผู้ประสบอุบัติเหตุและยานพาหนะ จำนวน " + converNum(rs.GetString("claim_doc_no6")) + " ฉบับ";
+                    listDoc += "\r\n                      6. สำเนารายงานประจำวันเกี่ยวกับคดี จำนวน จำนวน " + converNum(rs.GetString("claim_doc_no6")) + " ฉบับ";
                     listDoc += "\r\n                      7. ข้อมูลเบื้องต้นจากการสอบปากคำผู้เกี่ยวข้อง สป.11 จำนวน " + converNum(rs.GetString("claim_doc_no7")) + " ฉบับ";
                     listDoc += "\r\n                      8. หนังสือยอมความรับผิด จำนวน " + converNum(rs.GetString("claim_doc_no8")) + " ฉบับ";
                     listDoc += "\r\n                      9. สำเนาบัตรประจำตัวประชาชน จำนวน " + converNum(rs.GetString("claim_doc_no9")) + " ฉบับ";
@@ -503,9 +508,10 @@ namespace ClaimProject.Claim
             }
 
             ReportDocument rpt = new ReportDocument();
-
+            string cpoint_title = "ด่านฯ " + cpointName ;
             if (report == 0)
             {
+                cpoint_title += " "+point;
                 rpt.Load(Server.MapPath("/Claim/reportCom.rpt"));
                 doc_num = noteNumber;
                 rpt.SetParameterValue("list_com", com != "" ? com  : "");
@@ -523,8 +529,8 @@ namespace ClaimProject.Claim
                 rpt.SetParameterValue("note_title", title2);
                 rpt.SetParameterValue("date_thai", function.ConvertDatelongThai(DateTitle));
             }
-
-            rpt.SetParameterValue("cpoint_title", "ด่านฯ " + cpointName + " ฝ่ายบริหารการจัดเก็บเงินค่าธรรมเนียม โทร. " + function.GetSelectValue("tbl_cpoint", "cpoint_name='" + cpointName + "'", "cpoint_tel"));
+            cpoint_title += " ฝ่ายบริหารการจัดเก็บเงินค่าธรรมเนียม โทร. " + function.GetSelectValue("tbl_cpoint", "cpoint_name='" + cpointName + "'", "cpoint_tel");
+            rpt.SetParameterValue("cpoint_title", cpoint_title);
             rpt.SetParameterValue("num_title", doc_num);
             rpt.SetParameterValue("note_text", strNote);
 

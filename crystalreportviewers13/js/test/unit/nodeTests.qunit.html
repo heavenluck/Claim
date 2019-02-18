@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit tests for Bulletin Board</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta charset="utf-8">
+ 
+    <!-- TODO: This is for Jenkins testing deployment. We might not need to specify a different resource area depending on our deployment. --> 
+     <script>
+         bobj = {};
+         bobj.nodeResources = "../../resources/sap-ui-core.js";
+     </script>
+    <script src="../../ui5prompting/UI5Bootstrap.js"></script> 
+    <script src="./commonTestHarness.js"></script>
+    <script>
+        // Write out results
+        jQuery.sap.require("sap.ui.qunit.qunit-reporter-junit");
+        QUnit.jUnitDone(function(report) {
+            if (typeof report !== 'undefined') {
+                console.log(report.xml);
+            }
+        });
+    </script>
+ 
+</head>
+<body>
+<ol id="qunit-tests"></ol>
+<div id="qunit-fixture"></div>
+</body>
+</html>

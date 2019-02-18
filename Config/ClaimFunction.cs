@@ -15,8 +15,8 @@ namespace ClaimProject.Config
     {
         //ClaimConnection conn = new ClaimConnection();
         public MySqlConnection conn;
-        //string strConnString = "Server=10.6.3.201;User Id=adminclaim; Password=admin25;charset=utf8; Database=db_claim; Pooling=false";  //Depoly
-        string strConnString = "Server=localhost;User Id=root; Password=admin25;charset=utf8; Database=db_claim; Pooling=false";
+        string strConnString = "Server=10.6.3.201;User Id=adminclaim; Password=admin25;charset=utf8; Database=db_claim; Pooling=false";  //Depoly
+        //string strConnString = "Server=localhost;User Id=root; Password=admin25;charset=utf8; Database=db_claim; Pooling=false";
 
         public void getListItem(DropDownList list, string sql, string text, string value)
         {
@@ -170,7 +170,7 @@ namespace ClaimProject.Config
                     case "00":
                         return "ปัจจุบัน";
                 }
-                return int.Parse(subDate[0]) + " " + subDate[1] + " " + subDate[2];
+                return int.Parse(subDate[0]) + " " + subDate[1] + " " + subDate[2].Substring(2,2);
             }
             catch
             {
@@ -432,6 +432,17 @@ namespace ClaimProject.Config
                 conn.Close();
             }
             catch { conn.Close(); }
+        }
+
+        public string GetStatusCM(string status)
+        {
+            switch (status)
+            {
+                case "0": return "รอการแก้ไข"; 
+                case "1": return "รอการตรวจสอบ"; 
+                case "2": return "ใช้งานได้ปกติ"; 
+                default: return "";
+            }
         }
         /*public void MessageLine(string token, string msg)
         {

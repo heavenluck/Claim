@@ -41,6 +41,7 @@ namespace ClaimProject.Techno
                         txtDateSendOrder.Text = DateTime.Now.ToString("dd-MM-") + (DateTime.Now.Year + 543);
                         txtDateSendOrder_TextChanged(null, null);
                     }
+                    txtDateRecive.Text = DateTime.Now.ToString("dd-MM-") + (DateTime.Now.Year + 543);
                     PageLoadData();
                     string sql = "SELECT * FROM tbl_company ORDER BY company_name";
                     function.getListItem(txtCompany, sql, "company_name", "company_id");
@@ -50,9 +51,9 @@ namespace ClaimProject.Techno
 
                 }
 
-                if (int.Parse(Session["status_id"].ToString()) >= 3)
+                if (int.Parse(Session["status_id"].ToString()) >= 2)
                 {
-                    if (int.Parse(Session["status_id"].ToString()) != 3)
+                    if (int.Parse(Session["status_id"].ToString()) != 2)
                     {
                         btnSaveNoteTo.Visible = false;
                     }
@@ -61,7 +62,7 @@ namespace ClaimProject.Techno
                     int num = 1;
                     foreach (string s in readText)
                     {
-                        if (num != 7)
+                        if (num != 8)
                         {
                             AddControls(num, num + ". " + s + " จำนวน", Panel1);
                         }
@@ -72,15 +73,16 @@ namespace ClaimProject.Techno
                         num++;
                     }
 
-                    string sql_doc = "SELECT * FROM tbl_quotations q JOIN tbl_company c ON c.company_id = q.quotations_company_id WHERE q.quotations_claim_id = '" + Session["codePK"].ToString() + "'";
+                    /*string sql_doc = "SELECT * FROM tbl_quotations q JOIN tbl_company c ON c.company_id = q.quotations_company_id WHERE q.quotations_claim_id = '" + Session["codePK"].ToString() + "'";
                     MySqlDataReader rs = function.MySqlSelect(sql_doc);
+
                     while (rs.Read())
                     {
                         AddControls(num, num + ". ใบประเมินราคาค่าเสียหาย ของ " + rs.GetString("company_name") + " จำนวน", Panel1);
                         num++;
                     }
                     rs.Close();
-                    function.Close();
+                    function.Close();*/
                     if (!this.IsPostBack)
                     {
                         getDataStatus3();
@@ -195,19 +197,19 @@ namespace ClaimProject.Techno
                     break;
                 case "2":
                     btns0.Visible = false;
-                    btns1.Visible = true;
+                    btns1.Visible = false;
                     btns2.Visible = true;
                     btns3.Visible = false;
                     btns4.Visible = false;
-                    Div1.Visible = true;
-                    Div2.Visible = false;
+                    Div1.Visible = false;
+                    Div2.Visible = true;
                     Div3.Visible = false;
                     Div4.Visible = false;
                     break;
                 case "3":
                     btns0.Visible = false;
                     btns1.Visible = false;
-                    btns2.Visible = false;
+                    btns2.Visible = true;
                     btns3.Visible = true;
                     btns4.Visible = false;
                     Div1.Visible = true;
@@ -313,16 +315,16 @@ namespace ClaimProject.Techno
             if (function.MySqlQuery(sql))
             {
                 //script = "บันทึกสำเร็จ";
-                sql = "SELECT * FROM tbl_status_detail WHERE detail_claim_id='" + Session["codePK"].ToString() + "' AND detail_status_id= '2'";
+                sql = "SELECT * FROM tbl_status_detail WHERE detail_claim_id='" + Session["codePK"].ToString() + "' AND detail_status_id= '3'";
                 MySqlDataReader rs = function.MySqlSelect(sql);
                 if (!rs.Read())
                 {
                     rs.Close();
                     function.Close();
-                    sql = "INSERT INTO tbl_status_detail (detail_status_id,detail_claim_id,detail_date_start,detail_date_end) VALUES ('2','" + Session["codePK"].ToString() + "','" + function.ConvertDateTimeEB(DateTime.Now.ToString("dd-MM-yyyy")).ToString("dd-MM-yyyy") + "','" + function.ConvertDateTime(function.ConvertDateTimeEB(DateTime.Now.ToString("dd-MM-yyyy")).ToString("dd-MM-yyyy"), Quotations) + "')";
+                    sql = "INSERT INTO tbl_status_detail (detail_status_id,detail_claim_id,detail_date_start,detail_date_end) VALUES ('3','" + Session["codePK"].ToString() + "','" + function.ConvertDateTimeEB(DateTime.Now.ToString("dd-MM-yyyy")).ToString("dd-MM-yyyy") + "','" + function.ConvertDateTime(function.ConvertDateTimeEB(DateTime.Now.ToString("dd-MM-yyyy")).ToString("dd-MM-yyyy"), Quotations) + "')";
                     if (function.MySqlQuery(sql))
                     {
-                        sql = "UPDATE tbl_claim SET claim_status = '2' WHERE claim_id = '" + Session["codePK"].ToString() + "'";
+                        sql = "UPDATE tbl_claim SET claim_status = '3' WHERE claim_id = '" + Session["codePK"].ToString() + "'";
                         function.MySqlQuery(sql);
                     }
                 }
@@ -353,10 +355,10 @@ namespace ClaimProject.Techno
 
         protected void btns2_Click(object sender, EventArgs e)
         {
-            string sql = "INSERT INTO tbl_status_detail (detail_status_id,detail_claim_id,detail_date_start,detail_date_end) VALUES ('3','" + Session["codePK"].ToString() + "','" + function.ConvertDateTimeEB(DateTime.Now.ToString("dd-MM-yyyy")).ToString("dd-MM-yyyy") + "','" + function.ConvertDateTime(function.ConvertDateTimeEB(DateTime.Now.ToString("dd-MM-yyyy")).ToString("dd-MM-yyyy"), SendTo) + "')";
+            string sql = "INSERT INTO tbl_status_detail (detail_status_id,detail_claim_id,detail_date_start,detail_date_end) VALUES ('2','" + Session["codePK"].ToString() + "','" + function.ConvertDateTimeEB(DateTime.Now.ToString("dd-MM-yyyy")).ToString("dd-MM-yyyy") + "','" + function.ConvertDateTime(function.ConvertDateTimeEB(DateTime.Now.ToString("dd-MM-yyyy")).ToString("dd-MM-yyyy"), SendTo) + "')";
             if (function.MySqlQuery(sql))
             {
-                sql = "UPDATE tbl_claim SET claim_status = '3' WHERE claim_id = '" + Session["codePK"].ToString() + "'";
+                sql = "UPDATE tbl_claim SET claim_status = '2' WHERE claim_id = '" + Session["codePK"].ToString() + "'";
                 function.MySqlQuery(sql);
             }
             Response.Redirect("/Techno/TechnoFormDetail");
@@ -423,7 +425,7 @@ namespace ClaimProject.Techno
             LinkButton btnEdit = (LinkButton)e.Row.FindControl("btnEdit");
             if (btnEdit != null)
             {
-                if (Session["status_id"].ToString() != "2")
+                if (Session["status_id"].ToString() != "3")
                 {
                     btnEdit.Visible = false;
                 }
@@ -642,7 +644,7 @@ namespace ClaimProject.Techno
 
         protected void btnSaveNoteTo_Click(object sender, EventArgs e)
         {
-
+           
             string text = "claim_doc_id,claim_doc_type,claim_doc_num,claim_doc_title,claim_doc_to,claim_doc_date";
             string value = "'" + Session["CodePK"].ToString() + "','1','" + txtNoteNumTo.Text.Trim() + "','" + txtNoteTitleTo.Text.Trim() + "','" + txtNoteSendTo.Text.Trim() + "','" + txtDateNoteto.Text.Trim() + "'";
 
@@ -666,6 +668,8 @@ namespace ClaimProject.Techno
                     sql = "UPDATE tbl_status_detail SET detail_date_start ='" + txtDateNoteto.Text + "',detail_date_end ='" + function.ConvertDateTime(txtDateNoteto.Text, SendTo) + "' WHERE detail_status_id='3' AND detail_claim_id='" + Session["CodePK"].ToString() + "'";
                     function.MySqlQuery(sql);
                     ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('บันทึกสำเร็จ')", true);
+                    btnNoteTo.Visible = true;
+                    btnNoteToCpoy.Visible = true;
                 }
             }
             else
@@ -676,6 +680,8 @@ namespace ClaimProject.Techno
                     sql_update = "UPDATE tbl_status_detail SET detail_date_start ='" + txtDateNoteto.Text + "',detail_date_end ='" + function.ConvertDateTime(txtDateNoteto.Text, SendTo) + "' WHERE detail_status_id='3' AND detail_claim_id='" + Session["CodePK"].ToString() + "'";
                     function.MySqlQuery(sql_update);
                     ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('บันทึกสำเร็จ')", true);
+                    btnNoteTo.Visible = true;
+                    btnNoteToCpoy.Visible = true;
                 }
             }
 
@@ -823,7 +829,18 @@ namespace ClaimProject.Techno
                         i++;
                     }
                 }
+                else
+                {
+                    btnNoteTo.Visible = false;
+                    btnNoteToCpoy.Visible = false;
+                }
             }
+            else
+            {
+                btnNoteTo.Visible = false;
+                btnNoteToCpoy.Visible = false;
+            }
+            
             rs.Close();
             function.Close();
         }

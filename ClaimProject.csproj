@@ -50,86 +50,121 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CRVsPackageLib, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+    <Reference Include="Assembly.Software.Crystal.Reports.2010.Printing, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Assembly.Software.Crystal.Reports.2010.Printing.1.0.1\lib\net35\Assembly.Software.Crystal.Reports.2010.Printing.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly.Software.Utilities, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b43ab951e5782031, processorArchitecture=MSIL">
+      <HintPath>..\packages\Assembly.Software.Utilities.1.0.1\lib\net20\Assembly.Software.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="CRVsPackageLib, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\CrystalReportsWeb.13.0.9.1312\lib\net40\CRVsPackageLib.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CRVsPackageLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Design.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
-      <HintPath>..\packages\CrystalReports.Engine.13.0.3501\lib\net20\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.TemplateEngine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.TemplateEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Data.AdoDotNetInterop.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Enterprise.Viewing.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Enterprise.Viewing.ReportSource.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\CrystalReports.ReportAppServer.ClientDoc.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\CrystalReports.ReportAppServer.CommLayer.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.CommLayer.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.CommLayer.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\CrystalReports.ReportAppServer.CommonControls.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.CommonControls.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.CommonControls.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\CrystalReports.ReportAppServer.CommonObjectModel.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.CommonObjectModel.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.CommonObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\CrystalReports.ReportAppServer.Controllers.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.Controllers.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.Controllers.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\CrystalReports.ReportAppServer.CubeDefModel.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.CubeDefModel.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.CubeDefModel.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\CrystalReports.ReportAppServer.DataDefModel.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.DataDefModel.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.DataDefModel.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
-      <HintPath>..\packages\CrystalReports.ReportAppServer.DataSetConversion.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.DataSetConversion.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.DataSetConversion.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\CrystalReports.ReportAppServer.ObjectFactory.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\CrystalReports.ReportAppServer.Prompting.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\CrystalReports.ReportAppServer.ReportDefModel.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.ReportDefModel.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.ReportDefModel.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\CrystalReports.ReportAppServer.XmlSerialize.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.XmlSerialize.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.XmlSerialize.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
-      <HintPath>..\packages\CrystalReports.ReportSource.13.0.3501\lib\net20\CrystalDecisions.ReportSource.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
-      <HintPath>..\packages\CrystalReports.Shared.13.0.3501\lib\net20\CrystalDecisions.Shared.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.VSDesigner, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.VSDesigner.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cfee.CrystalReports.Web.13.0.3501.1\lib\net20\CrystalDecisions.Web.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\FlashControlV71.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
@@ -165,6 +200,19 @@
     </Reference>
     <Reference Include="MySql.Data, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.10.8\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="SAPBusinessObjects.WPF.Viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\SAPBusinessObjects.WPF.Viewer.dll</HintPath>
+    </Reference>
+    <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\SAPBusinessObjects.WPF.ViewerShared.dll</HintPath>
+    </Reference>
+    <Reference Include="ShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\ShockwaveFlashObjects.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -251,9 +299,14 @@
     <Content Include="About.aspx" />
     <Content Include="Claim\300px-Thai_government_Garuda_emblem_%28Version_2%29.jpg" />
     <Content Include="Claim\claimDetailForm.aspx" />
+    <Content Include="Claim\ClaimDevice.aspx" />
     <Content Include="Claim\claimForm.aspx" />
+    <Content Include="Claim\DefaultClaim.aspx" />
     <Content Include="Claim\Upload\chrome_installer.exe" />
     <Content Include="CM\CMDetailForm.aspx" />
+    <Content Include="CM\CMEditForm.aspx" />
+    <Content Include="CM\CMSurveyForm.aspx" />
+    <Content Include="CM\DefaultCM.aspx" />
     <Content Include="Company\CompanyForm.aspx" />
     <Content Include="Config\brandCar.txt" />
     <Content Include="Config\ListDocTechno.txt" />
@@ -414,29 +467,193 @@
     <Content Include="Content\webfonts\fa-brands-400.svg" />
     <Content Include="Content\webfonts\fa-regular-400.svg" />
     <Content Include="Content\webfonts\fa-solid-900.svg" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_cs.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_da.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_de.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_en.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_es.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_fi.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_fr.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_hu.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_it.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_ja.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_ko.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_nb.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_nl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_pl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_pt.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_ru.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_sk.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_sv.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_th.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_tr.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_zh_CN.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\CRViewer_res_zh_TW.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_cs.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_da.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_de.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_en.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_es.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_fi.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_fr.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_hu.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_it.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_ja.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_ko.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_nb.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_nl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_pl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_pt.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_ru.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_sk.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_sv.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_th.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_tr.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_zh_CN.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\csprintdlg_res_zh_TW.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\LCIDTable.xml" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_cs.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_cs.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_da.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_da.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_de.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_de.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_en.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_en.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_es.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_es.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_fi.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_fi.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_fr.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_fr.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_hu.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_hu.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_it.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_it.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_ja.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_ja.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_ko.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_ko.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_nb.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_nb.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_nl.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_nl.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_pl.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_pl.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_pt.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_pt.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_ru.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_ru.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_sk.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_sk.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_sv.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_sv.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_th.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_th.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_tr.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_tr.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_zh_CN.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_zh_CN.dll" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_zh_TW.cab" />
+    <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_zh_TW.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\pvlocale-1-0.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_cs.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_da.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_de.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_en.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_es.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_fi.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_fr.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_hu.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_it.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_ja.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_ko.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_nb.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_nl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_pl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_pt.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_ru.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_sk.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_sv.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_th.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_tr.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_zh_CN.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\sviewhlp_res_zh_TW.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_cs.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_da.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_de.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_en.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_es.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_fi.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_fr.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_hu.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_it.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_ja.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_ko.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_nb.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_nl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_pl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_pt.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_ru.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_sk.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_sv.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_th.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_tr.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_zh_CN.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\swebrs_res_zh_TW.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_cs.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_da.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_de.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_en.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_es.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_fi.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_fr.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_hu.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_it.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_ja.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_ko.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_nb.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_nl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_pl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_pt.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_ru.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_sk.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_sv.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_th.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_tr.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_zh_CN.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\csprintdlg_res_zh_TW.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_cs.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_da.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_de.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_en.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_es.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_fi.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_fr.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_hu.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_it.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_ja.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_ko.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_nb.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_nl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_pl.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_pt.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_ru.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_sk.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_sv.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_th.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_tr.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_zh_CN.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\PrintControl_res_zh_TW.dll" />
+    <Content Include="crystalreportviewers13\ActiveXControls\win64_x64\pvlocale-1-0.dll" />
     <Content Include="crystalreportviewers13\allInOne.js" />
     <Content Include="crystalreportviewers13\allStrings_cs.js" />
     <Content Include="crystalreportviewers13\allStrings_da.js" />
@@ -460,6 +677,8 @@
     <Content Include="crystalreportviewers13\allStrings_tr.js" />
     <Content Include="crystalreportviewers13\allStrings_zh_CN.js" />
     <Content Include="crystalreportviewers13\allStrings_zh_TW.js" />
+    <Content Include="crystalreportviewers13\crsmarttag.asp" />
+    <Content Include="crystalreportviewers13\crystalimagehandler.asp" />
     <Content Include="crystalreportviewers13\css\cedefault.css" />
     <Content Include="crystalreportviewers13\css\default.css" />
     <Content Include="crystalreportviewers13\css\exception.css" />
@@ -467,6 +686,7 @@
     <Content Include="crystalreportviewers13\html\calendar.html" />
     <Content Include="crystalreportviewers13\html\calendarbottom.html" />
     <Content Include="crystalreportviewers13\html\calendartop.html" />
+    <Content Include="crystalreportviewers13\imagehandlerdotnetbridge.aspx" />
     <Content Include="crystalreportviewers13\images\buttonl.gif" />
     <Content Include="crystalreportviewers13\images\buttonm.gif" />
     <Content Include="crystalreportviewers13\images\buttonr.gif" />
@@ -909,6 +1129,7 @@
     <Content Include="crystalreportviewers13\js\prompts_param.js" />
     <Content Include="crystalreportviewers13\js\swfobject\swfobject.js" />
     <Content Include="crystalreportviewers13\parameterUIController-compressed.js" />
+    <Content Include="crystalreportviewers13\preview.aspx" />
     <Content Include="crystalreportviewers13\processindicator.js" />
     <Content Include="crystalreportviewers13\promptengine-compressed.js" />
     <Content Include="crystalreportviewers13\prompting\css\promptengine2.css" />
@@ -1001,7 +1222,10 @@
     <Content Include="Content\fonts\octicons.eot" />
     <Content Include="Content\fonts\octicons.ttf" />
     <Content Include="Content\fonts\octicons.woff" />
+    <Content Include="lib\Assembly.Software.Profile.dll" />
+    <Content Include="lib\Assembly.Software.Profile.xml" />
     <Content Include="Login.aspx" />
+    <Content Include="PM\PMMainForm.aspx" />
     <Content Include="ReportView\Default.aspx" />
     <Content Include="Report\300px-Thai_government_Garuda_emblem_%28Version_2%29.jpg" />
     <Content Include="Report\report.aspx" />
@@ -1060,6 +1284,9 @@
     <Content Include="Content\fontawesome\regular.less" />
     <Content Include="Content\fontawesome\fontawesome.less" />
     <Content Include="Content\fontawesome\brands.less" />
+    <Content Include="crystalreportviewers13\ActiveXControls\crviewer.dep" />
+    <Content Include="crystalreportviewers13\crsmarttag.jsp" />
+    <Content Include="crystalreportviewers13\preview.jsp" />
     <None Include="Model\DataSetClaim.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -1242,12 +1469,26 @@
     <Compile Include="Claim\claimDetailForm.aspx.designer.cs">
       <DependentUpon>claimDetailForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Claim\ClaimDevice.aspx.cs">
+      <DependentUpon>ClaimDevice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Claim\ClaimDevice.aspx.designer.cs">
+      <DependentUpon>ClaimDevice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Claim\claimForm.aspx.cs">
       <DependentUpon>claimForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Claim\claimForm.aspx.designer.cs">
       <DependentUpon>claimForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Claim\DefaultClaim.aspx.cs">
+      <DependentUpon>DefaultClaim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Claim\DefaultClaim.aspx.designer.cs">
+      <DependentUpon>DefaultClaim.aspx</DependentUpon>
     </Compile>
     <Compile Include="Claim\reportOfficialBooks.cs">
       <DependentUpon>reportOfficialBooks.rpt</DependentUpon>
@@ -1274,6 +1515,27 @@
     <Compile Include="CM\CMDetailForm.aspx.designer.cs">
       <DependentUpon>CMDetailForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CM\CMEditForm.aspx.cs">
+      <DependentUpon>CMEditForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CM\CMEditForm.aspx.designer.cs">
+      <DependentUpon>CMEditForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CM\CMSurveyForm.aspx.cs">
+      <DependentUpon>CMSurveyForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CM\CMSurveyForm.aspx.designer.cs">
+      <DependentUpon>CMSurveyForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CM\DefaultCM.aspx.cs">
+      <DependentUpon>DefaultCM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CM\DefaultCM.aspx.designer.cs">
+      <DependentUpon>DefaultCM.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Company\CompanyForm.aspx.cs">
       <DependentUpon>CompanyForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1284,6 +1546,7 @@
     <Compile Include="Config\ClaimConnection.cs" />
     <Compile Include="Config\ClaimFunction.cs" />
     <Compile Include="Config\DateDifference.cs" />
+    <Compile Include="Config\PrintHelper.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1326,6 +1589,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetClaim.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PMMainForm.aspx.cs">
+      <DependentUpon>PMMainForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PM\PMMainForm.aspx.designer.cs">
+      <DependentUpon>PMMainForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -1431,6 +1701,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="CM\Upload\" />
     <Folder Include="Techno\Upload\Order\" />
   </ItemGroup>
   <ItemGroup>

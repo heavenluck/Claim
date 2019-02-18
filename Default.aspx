@@ -19,7 +19,7 @@
                     <div class="card card-stats">
                         <div class="card-header card-header-danger card-header-icon">
                             <div class="card-icon">
-                                <i class="fa fa-bell-o"></i>
+                                <i class="fas fa-car-crash"></i>
                             </div>
                             <h4 class="card-category">แจ้งอุบัติเหตุ</h4>
                             <h4 class="card-title">
@@ -34,6 +34,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-6 col-sm-6" runat="server" id="Div2">
+                    <div class="card card-stats">
+                        <div class="card-header card-header-secondary card-header-icon">
+                            <div class="card-icon">
+                                <i class="fas fa-file-export"></i>
+                            </div>
+                            <h4 class="card-category">ส่งเรื่องเข้ากองฯ</h4>
+                            <h4 class="card-title">
+                                <asp:Label ID="lbSend" runat="server" Text="Label"></asp:Label>
+                            </h4>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="fa fa-th-list"></i>&nbsp
+                        <asp:LinkButton ID="btnSendto" runat="server" OnClick="btnSendto_Click">รายละเอียด</asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-lg-3 col-md-6 col-sm-6" runat="server" id="Div1">
                     <div class="card card-stats">
                         <div class="card-header card-header-warning card-header-icon">
@@ -53,25 +73,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6" runat="server" id="Div2">
-                    <div class="card card-stats">
-                        <div class="card-header card-header-secondary card-header-icon">
-                            <div class="card-icon">
-                                <i class="fa fa-send-o"></i>
-                            </div>
-                            <h4 class="card-category">ส่งเรื่องเข้ากองฯ</h4>
-                            <h4 class="card-title">
-                                <asp:Label ID="lbSend" runat="server" Text="Label"></asp:Label>
-                            </h4>
-                        </div>
-                        <div class="card-footer">
-                            <div class="stats">
-                                <i class="fa fa-th-list"></i>&nbsp
-                        <asp:LinkButton ID="btnSendto" runat="server" OnClick="btnSendto_Click">รายละเอียด</asp:LinkButton>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
                 <div class="col-lg-3 col-md-6 col-sm-6" runat="server" id="Div4">
                     <div class="card card-stats">
                         <div class="card-header card-header-info card-header-icon">
@@ -95,7 +98,7 @@
                     <div class="card card-stats">
                         <div class="card-header card-header-success card-header-icon">
                             <div class="card-icon">
-                                <i class="fa fa-thumbs-o-up"></i>
+                                <i class="far fa-folder-open"></i>
                             </div>
                             <h4 class="card-category">ส่งงาน/เสร็จสิ้น</h4>
                             <h4 class="card-title">
@@ -139,7 +142,8 @@
                     </asp:DropDownList><br />
                     ข้อความ 
                     <asp:TextBox ID="TextBox1" runat="server" TextMode="MultiLine" Width="300px"></asp:TextBox>
-                    URL รูปภาพ <asp:TextBox ID="TextBox2" runat="server" Width="300px"></asp:TextBox>
+                    URL รูปภาพ
+                    <asp:TextBox ID="TextBox2" runat="server" Width="300px"></asp:TextBox>
                     <asp:LinkButton ID="Button1" runat="server" Text="ส่ง" CssClass="btn btn-success" OnClientClick="return CompareConfirm('ยืนยันการส่งข้อมูล');" OnClick="Button1_Click" />
                 </div>
             </div>

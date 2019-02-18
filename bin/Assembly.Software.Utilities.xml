@@ -1,0 +1,52 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Assembly.Software.Utilities
+</name>
+</assembly>
+<members>
+<member name="T:Assembly.Software.Utilities.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Assembly.Software.Utilities.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Assembly.Software.Utilities.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:Assembly.Software.Utilities.Config.ReadRegistryValue(Assembly.Software.Utilities.Config.enuRegistryRootItem,System.String,System.String)">
+ <summary>
+ This function returns the registry value of a given key, based on the user specification
+ </summary>
+ <param name="enuRegistryRootKey">The users selections of the root registry key</param>
+ <param name="strRegistrySection">The users selection of the path to the registry key, for example: SOFTWARE\Microsoft\Windows\CurrentVersion</param>
+ <param name="strItemName">The users selections of the item that needs to be read, for example: CommonFilesDir</param>
+ <returns>The vaue of the item from the registry</returns>
+ <remarks>
+ Written By: Raz Davidovich
+ Write Date: 29/04/2008
+ </remarks>
+</member>
+<member name="M:Assembly.Software.Utilities.Config.WriteRegistryValue(Assembly.Software.Utilities.Config.enuRegistryRootItem,System.String,System.String,System.String)">
+ <summary>
+ 
+ </summary>
+ <param name="enuRegistryRootKey">The users selections of the root registry key</param>
+ <param name="strRegistrySection">The users selection of the path to the registry key, for example: SOFTWARE\Microsoft\Windows\CurrentVersion</param>
+ <param name="strItemName">The users selections of the item that needs to be read, for example: CommonFilesDir</param>
+ <param name="strValueToWrite">The value to write to the registry item</param>
+ <remarks>
+ Written By: Raz Davidovich
+ Write Date: 29/04/2008
+ </remarks>
+</member>
+</members>
+</doc>

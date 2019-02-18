@@ -178,10 +178,10 @@
 
                     <div class="row">
                         <div class="col-md">
-                            1. สำเนารายงานประจำวันเกี่ยวกับคดี
+                            1. บันทึกข้อความ
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo1" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo1" runat="server" CssClass="form-control text-center form-control-sm" ToolTip="ถ้าไม่มีให้ใส่ 0" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -192,7 +192,7 @@
                             2. สำเนาบันทึกการเปรียบเที่ยบปรับ
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo2" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo2" runat="server" CssClass="form-control text-center form-control-sm"  ToolTip="ถ้าไม่มีให้ใส่ 0" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -203,7 +203,7 @@
                             3. สำเนาใบเสร็จค่าปรับ
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo3" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo3" runat="server" CssClass="form-control text-center form-control-sm"  ToolTip="ถ้าไม่มีให้ใส่ 0" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -214,7 +214,7 @@
                             4. บันทึกข้อมูลการเกิดอุบัติเหตุถเบื้องต้นสำหรับการแจ้งความ
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo4" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo4" runat="server" CssClass="form-control text-center form-control-sm"  ToolTip="ถ้าไม่มีให้ใส่ 0" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -225,7 +225,7 @@
                             5. รายงานอุบัติเหตุบนทางหลวง (ส.3-02) จำนวน 
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo5" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo5" runat="server" CssClass="form-control text-center form-control-sm" ToolTip="ถ้าไม่มีให้ใส่ 0"  />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -233,10 +233,10 @@
                     </div>
                     <div class="row">
                         <div class="col-md">
-                            6. รายละเอียดเกี่ยวกับผู้ประสบอุบัติเหตุและยานพาหนะ
+                            6. สำเนารายงานประจำวันเกี่ยวกับคดี
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo6" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo6" runat="server" CssClass="form-control text-center form-control-sm"  ToolTip="ถ้าไม่มีให้ใส่ 0" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -247,7 +247,7 @@
                             7. ข้อมูลเบื้องต้นจากการสอบปากคำผู้เกี่ยวข้อง สป.11 จำนวน
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo7" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo7" runat="server" CssClass="form-control text-center form-control-sm"  ToolTip="ถ้าไม่มีให้ใส่ 0" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -258,7 +258,7 @@
                             8. หนังสือยอมความรับผิด
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo8" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo8" runat="server" CssClass="form-control text-center form-control-sm"  ToolTip="ถ้าไม่มีให้ใส่ 0" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -269,7 +269,7 @@
                             9. สำเนาบัตรประจำตัวประชาชน
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo9" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo9" runat="server" CssClass="form-control text-center form-control-sm"  ToolTip="ถ้าไม่มีให้ใส่ 0" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -280,7 +280,7 @@
                             10. สำเนาใบอนุญาตขับรถ
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo10" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo10" runat="server" CssClass="form-control text-center form-control-sm"  ToolTip="ถ้าไม่มีให้ใส่ 0" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -291,7 +291,7 @@
                             11. สำเนาใบรับรองความเสียหายต่อทรัพย์สิน (ใบเคลมประกัน)
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo11" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo11" runat="server" CssClass="form-control text-center form-control-sm"  ToolTip="ถ้าไม่มีให้ใส่ 0" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -302,7 +302,7 @@
                             12. บันทึกข้อความรายงานของ พ.ควบคุมระบบ และรองผจด.ประจำผลัด
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo12" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo12" runat="server" CssClass="form-control text-center form-control-sm"  ToolTip="ถ้าไม่มีให้ใส่ 0" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -313,7 +313,7 @@
                             13. รูปภาพประกอบ
                         </div>
                         <div class="col-md-1">
-                            <asp:TextBox ID="txtNo13" runat="server" CssClass="form-control text-center form-control-sm" />
+                            <asp:TextBox ID="txtNo13" runat="server" CssClass="form-control text-center form-control-sm"  ToolTip="ถ้าไม่มีให้ใส่ 0" />
                         </div>
                         <div class="col-md-1 text-left">
                             ฉบับ
@@ -344,7 +344,7 @@
             $("#NoteModal").modal('hide');
             <%}%>
             $(".datepicker").datepicker($.datepicker.regional["th"]);
-            $(".datepicker").datepicker("setDate", new Date());
+            //$(".datepicker").datepicker("setDate", new Date());
         });
 
         function ClickNote() {

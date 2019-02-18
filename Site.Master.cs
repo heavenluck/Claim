@@ -15,13 +15,13 @@ namespace ClaimProject
         {
             //Response.Charset = "UTF-8";
 
-            if (Request.Cookies["Login"] != null)
+            if (Request.Cookies["ClaimLogin"] != null)
             {
-                Session.Add("User", Request.Cookies["Login"]["User"]);
-                Session.Add("UserName", function.GetSelectValue("tbl_user","username = '"+ Request.Cookies["Login"]["User"] + "'","name"));
-                Session.Add("UserPrivilegeId", function.GetSelectValue("tbl_user", "username = '" + Request.Cookies["Login"]["User"] + "'", "level"));
+                Session.Add("User", Request.Cookies["ClaimLogin"]["User"]);
+                Session.Add("UserName", function.GetSelectValue("tbl_user","username = '"+ Request.Cookies["ClaimLogin"]["User"] + "'","name"));
+                Session.Add("UserPrivilegeId", function.GetSelectValue("tbl_user", "username = '" + Request.Cookies["ClaimLogin"]["User"] + "'", "level"));
                 Session.Add("UserPrivilege", function.GetLevel(int.Parse(Session["UserPrivilegeId"].ToString())));
-                Session.Add("UserCpoint", Request.Cookies["Login"]["UserCpoint"]);
+                Session.Add("UserCpoint", Request.Cookies["ClaimLogin"]["UserCpoint"]);
                 Session.Timeout = 60 * 24;
             }
 
@@ -44,7 +44,7 @@ namespace ClaimProject
                 if (!function.CheckLevel("Department", Session["UserPrivilegeId"].ToString()))
                 {
                     nav0.Visible = false;
-                    nav6.Visible = false;
+                    //nav6.Visible = false;
                 }
             }
         }
@@ -55,7 +55,7 @@ namespace ClaimProject
             Session.Clear();
             Session.Contents.RemoveAll();
             Session.RemoveAll();
-            Response.Cookies["Login"].Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies["ClaimLogin"].Expires = DateTime.Now.AddDays(-1);
             Response.Redirect("/");
         }
 

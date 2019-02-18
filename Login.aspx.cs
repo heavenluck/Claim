@@ -62,7 +62,7 @@ namespace ClaimProject
                         Session.Timeout = 60 * 24;
 
                         //Response.Charset = "UTF-8";
-                        HttpCookie newCookie = new HttpCookie("Login");
+                        HttpCookie newCookie = new HttpCookie("ClaimLogin");
                         newCookie["User"] = txtUser.Text;
                         newCookie["UserName"] = rs.GetString("name");
                         newCookie["UserPrivilegeId"] = rs.GetString("level");

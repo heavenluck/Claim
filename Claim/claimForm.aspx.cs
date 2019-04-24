@@ -337,7 +337,7 @@ namespace ClaimProject.Claim
             string cpoint_manager = "";
             string title2 = "";
             string DateTitle = "";
-
+            //..//
             string sql = "SELECT * FROM tbl_claim c JOIN tbl_claim_com cc ON cc.claim_id=c.claim_id JOIN tbl_cpoint cp ON cp.cpoint_id = c.claim_cpoint WHERE c.claim_id = '" + key + "'";
 
             MySqlDataReader rs = function.MySqlSelect(sql);

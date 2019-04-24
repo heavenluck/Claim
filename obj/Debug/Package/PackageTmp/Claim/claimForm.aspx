@@ -255,7 +255,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md">
-                            8. หนังสือยอมความรับผิด
+                            8. หนังสือยอมรับความผิด
                         </div>
                         <div class="col-md-1">
                             <asp:TextBox ID="txtNo8" runat="server" CssClass="form-control text-center form-control-sm"  ToolTip="ถ้าไม่มีให้ใส่ 0" />
@@ -327,7 +327,7 @@
                 </div>
         </div>
     </div>
-
+</div>
     <!-- -------------------------------------------------------------------- -->
 
     <script src="/Scripts/jquery-ui-1.11.4.custom.js"></script>

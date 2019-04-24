@@ -213,7 +213,18 @@ namespace ClaimProject.Claim
 
         protected void btnAddImg_Click(object sender, EventArgs e)
         {
-            Insert(0, fileImg);
+            if (fileImg.HasFile)
+            {
+                foreach (HttpPostedFile postedFile in fileImg.PostedFiles)
+                {
+                    Insert(0, postedFile);
+                }
+            }
+            else
+            {
+                AlertPop("Error : แนบรูปภาพล้มเหลว ไฟล์เอกสารต้องเป็น *.jpg *.jpge *.png เท่านั้น", "error");
+            }
+            //Insert(0, fileImg);
         }
 
         void BindImg()
@@ -426,7 +437,7 @@ namespace ClaimProject.Claim
                             AlertPop("บันทึกข้อมูลสำเร็จ", "success");
                             SreviceLine.WebService_Server serviceLine = new SreviceLine.WebService_Server();
                             //ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('บันทึกข้อมูลสำเร็จ')", true);
-                            serviceLine.MessageToServer("uQQdUNuFfBphgSugC3OUa1lSjmovi4XINOAe2VwIczo", "ระบบได้รับข้อมูลการเกิดอุบัติเหตุ จากด่านฯ " + txtCpoint.SelectedItem + " เมื่อวันที่ " + function.ConvertDatelongThai(txtStartDate.Text) +" เวลา "+ txtTime.Text + "น. เรียบร้อยแล้ว ขอให้เจ้าหน้าที่ @Helpdesk งานเทคโนฯ เข้าตรวจสอบข้อมูลในระบบเพื่อความถูกต้องด้วย\r\n\r\n ขอบคุณครับ","", 1,41);
+                            serviceLine.MessageToServer("uQQdUNuFfBphgSugC3OUa1lSjmovi4XINOAe2VwIczo", "ระบบได้รับข้อมูลการเกิดอุบัติเหตุ จากด่านฯ " + txtCpoint.SelectedItem + " เมื่อวันที่ " + function.ConvertDatelongThai(txtStartDate.Text) + " เวลา " + txtTime.Text + "น. เรียบร้อยแล้ว ขอให้เจ้าหน้าที่ @Helpdesk งานเทคโนฯ เข้าตรวจสอบข้อมูลในระบบเพื่อความถูกต้องด้วย\r\n\r\n ขอบคุณครับ", "", 1, 41);
                         }
                         else
                         {
@@ -551,39 +562,42 @@ namespace ClaimProject.Claim
 
         protected void btnUploadDoc_Click(object sender, EventArgs e)
         {
-            Insert(1, FileUploadDoc);
-        }
-
-        void Insert(int type, FileUpload file)
-        {
-            String NewFileDocName = "";
-            if (file.HasFile)
+            if (FileUploadDoc.HasFile)
             {
-                string typeFile = file.FileName.Split('.')[file.FileName.Split('.').Length - 1];
-                if (typeFile == "jpg" || typeFile == "jpeg" || typeFile == "png")
+                foreach (HttpPostedFile postedFile in FileUploadDoc.PostedFiles)
                 {
-                    NewFileDocName = Session["CodePK"].ToString() + new Random().Next(1000, 9999);
-                    NewFileDocName = "/Claim/Upload/" + function.getMd5Hash(NewFileDocName) + "." + typeFile;
-                    file.SaveAs(Server.MapPath(NewFileDocName.ToString()));
-
-                    string sql_text = "claim_img_url,claim_deteil_id,claim_img_type";
-                    string sql_value = "'" + NewFileDocName + "','" + Session["CodePK"].ToString() + "','" + type + "'";
-                    string sql_insert = "INSERT INTO tbl_claim_img (" + sql_text + ") VALUES (" + sql_value + ")";
-                    function.MySqlQuery(sql_insert);
-                    BindImg();
-                    BindDoc();
-                }
-                else
-                {
-                    AlertPop("Error : แนบรูปภาพล้มเหลว ไฟล์เอกสารต้องเป็น *.jpg *.jpge *.png เท่านั้น", "error");
-                    //ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('Error : แนบรูปภาพล้มเหลว ไฟล์เอกสารต้องเป็น *.jpg *.jpge *.png เท่านั้น')", true);
+                    Insert(1, postedFile);
                 }
             }
             else
             {
-                AlertPop("Error : แนบรูปภาพล้มเหลวไม่พบไฟล์", "error");
-                //ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('Error : แนบรูปภาพล้มเหลวไม่พบไฟล์')", true);
+                AlertPop("Error : แนบรูปภาพล้มเหลว ไฟล์เอกสารต้องเป็น *.jpg *.jpge *.png เท่านั้น", "error");
             }
+        }
+
+        void Insert(int type, HttpPostedFile file)
+        {
+            String NewFileDocName = "";
+            string typeFile = file.FileName.Split('.')[file.FileName.Split('.').Length - 1];
+            if (typeFile == "jpg" || typeFile == "jpeg" || typeFile == "png")
+            {
+                NewFileDocName = Session["CodePK"].ToString() + new Random().Next(1000, 9999);
+                NewFileDocName = "/Claim/Upload/" + function.getMd5Hash(NewFileDocName) + "." + typeFile;
+                file.SaveAs(Server.MapPath(NewFileDocName.ToString()));
+
+                string sql_text = "claim_img_url,claim_deteil_id,claim_img_type";
+                string sql_value = "'" + NewFileDocName + "','" + Session["CodePK"].ToString() + "','" + type + "'";
+                string sql_insert = "INSERT INTO tbl_claim_img (" + sql_text + ") VALUES (" + sql_value + ")";
+                function.MySqlQuery(sql_insert);
+                BindImg();
+                BindDoc();
+            }
+            else
+            {
+                AlertPop("Error : แนบรูปภาพล้มเหลว ไฟล์เอกสารต้องเป็น *.jpg *.jpge *.png เท่านั้น", "error");
+                //ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "alert('Error : แนบรูปภาพล้มเหลว ไฟล์เอกสารต้องเป็น *.jpg *.jpge *.png เท่านั้น')", true);
+            }
+
         }
 
         void ShowDiv()

@@ -345,7 +345,7 @@
                     <div class="col-md-3">
                         <div class="custom-file">
                             <label class="custom-file-label" for="customFile">เลือกไฟล์</label>
-                            <asp:FileUpload ID="fileImg" runat="server" CssClass="custom-file-input" lang="en" />
+                            <asp:FileUpload ID="fileImg" runat="server" AllowMultiple="true" CssClass="custom-file-input" lang="en" />
                         </div>
                     </div>
                     <div class="col-md-1">
@@ -392,7 +392,7 @@
                     <div class="col-md-3">
                         <div class="custom-file">
                             <label class="custom-file-label" for="customFile">เลือกไฟล์</label>
-                            <asp:FileUpload ID="FileUploadDoc" runat="server" CssClass="custom-file-input" lang="en" />
+                            <asp:FileUpload ID="FileUploadDoc" AllowMultiple="true" runat="server" CssClass="custom-file-input" lang="en" />
                         </div>
                     </div>
                     <div class="col-md-1">

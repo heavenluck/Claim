@@ -494,7 +494,7 @@ namespace ClaimProject.Claim
                     listDoc += "\r\n                      5. รายงานอุบัติเหตุบนทางหลวง (ส.3-02) จำนวน " + converNum(rs.GetString("claim_doc_no5")) + " ฉบับ";
                     listDoc += "\r\n                      6. สำเนารายงานประจำวันเกี่ยวกับคดี จำนวน จำนวน " + converNum(rs.GetString("claim_doc_no6")) + " ฉบับ";
                     listDoc += "\r\n                      7. ข้อมูลเบื้องต้นจากการสอบปากคำผู้เกี่ยวข้อง สป.11 จำนวน " + converNum(rs.GetString("claim_doc_no7")) + " ฉบับ";
-                    listDoc += "\r\n                      8. หนังสือยอมความรับผิด จำนวน " + converNum(rs.GetString("claim_doc_no8")) + " ฉบับ";
+                    listDoc += "\r\n                      8. หนังสือยอมรับความผิด จำนวน " + converNum(rs.GetString("claim_doc_no8")) + " ฉบับ";
                     listDoc += "\r\n                      9. สำเนาบัตรประจำตัวประชาชน จำนวน " + converNum(rs.GetString("claim_doc_no9")) + " ฉบับ";
                     listDoc += "\r\n                      10. สำเนาใบอนุญาตขับรถ จำนวน " + converNum(rs.GetString("claim_doc_no10")) + " ฉบับ";
                     listDoc += "\r\n                      11. สำเนาใบรับรองความเสียหายต่อทรัพย์สิน (ใบเคลมประกัน) จำนวน " + converNum(rs.GetString("claim_doc_no11")) + " ฉบับ";
